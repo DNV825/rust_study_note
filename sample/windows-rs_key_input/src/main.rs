@@ -1,42 +1,36 @@
-use windows::Win32::UI::Input::KeyboardAndMouse;
+//! rust_grammer_sample
+//! oooo
+mod console_virtual_terminal;
+mod win_key_input;
+
+use console_virtual_terminal as cvt;
 use std::{thread, time};
+use win_key_input as keyboard;
+use win_key_input::{KeyKind, KeyState};
 
-enum KeyState {
-    Pressed,
-    Unpressed,
-}
-
+// https://crates.io/crates/termion
+// https://docs.rs/termion/2.0.1/termion/
+// https://qiita.com/hatoo@github/items/905a19a98876e7446edf
 fn main() {
-    let key_esc = 0x1b; // esc
-    let key_space = 0x20; // [space]
-    let key_q = 0x51; // q
-    let key_left_arrow = 0x25; // ←
-    let key_up_arrow = 0x26; // ↑
-    let key_right_arrow = 0x27; // →
-    let key_down_arrow = 0x28; // ↓
-
     let player1 = "@";
     let mut player1_pos_x = 1;
     let mut player1_pos_y = 1;
 
-    print!("\x1b[?1049h"); // 代替画面
-    print!("\x1b[?25l"); // カーソルを消す
-    print!("\x1b[0;0H"); // カーソル位置を0,0にする。
-    loop {
-        let key_state_esc = get_key_state(unsafe { KeyboardAndMouse::GetAsyncKeyState(key_esc) });
-        let key_state_space =
-            get_key_state(unsafe { KeyboardAndMouse::GetAsyncKeyState(key_space) });
-        let key_state_q = get_key_state(unsafe { KeyboardAndMouse::GetAsyncKeyState(key_q) });
-        let key_state_left_arrow =
-            get_key_state(unsafe { KeyboardAndMouse::GetAsyncKeyState(key_left_arrow) });
-        let key_state_up_arrow =
-            get_key_state(unsafe { KeyboardAndMouse::GetAsyncKeyState(key_up_arrow) });
-        let key_state_right_arrow =
-            get_key_state(unsafe { KeyboardAndMouse::GetAsyncKeyState(key_right_arrow) });
-        let key_state_down_arrow =
-            get_key_state(unsafe { KeyboardAndMouse::GetAsyncKeyState(key_down_arrow) });
+    cvt::use_alternate_screen_buffer(); // 代替画面にする。
+    cvt::set_window_title("console tetris"); // 代替画面にタイトルを表示する。
+    cvt::set_cursor_invisible(); // カーソル表示を消す。
+    cvt::set_cursor_position(0, 0); // カーソル位置を0, 0にする。
 
-        if let KeyState::Pressed = key_state_left_arrow {
+    let mut esc = keyboard::KeyInput::new(KeyKind::ESC);
+    let mut space = keyboard::KeyInput::new(KeyKind::SPACE);
+    let mut q = keyboard::KeyInput::new(KeyKind::Q);
+    let mut left_arrow = keyboard::KeyInput::new(KeyKind::LEFT_ARROW);
+    let mut up_arrow = keyboard::KeyInput::new(KeyKind::UP_ARROW);
+    let mut right_arrow = keyboard::KeyInput::new(KeyKind::RIGHT_ARROW);
+    let mut down_arrow = keyboard::KeyInput::new(KeyKind::DOWN_ARROW);
+
+    loop {
+        if let KeyState::Pressed = left_arrow.get_key_state() {
             if player1_pos_x == 1 {
                 player1_pos_x = 1;
             } else {
@@ -44,7 +38,7 @@ fn main() {
             }
         }
 
-        if let KeyState::Pressed = key_state_up_arrow {
+        if let KeyState::Pressed = up_arrow.get_key_state() {
             if player1_pos_y == 1 {
                 player1_pos_y = 1;
             } else {
@@ -52,7 +46,7 @@ fn main() {
             }
         }
 
-        if let KeyState::Pressed = key_state_right_arrow {
+        if let KeyState::Pressed = right_arrow.get_key_state() {
             if player1_pos_x == 80 {
                 player1_pos_x = 80;
             } else {
@@ -60,7 +54,7 @@ fn main() {
             }
         }
 
-        if let KeyState::Pressed = key_state_down_arrow {
+        if let KeyState::Pressed = down_arrow.get_key_state() {
             if player1_pos_y == 30 {
                 player1_pos_y = 30;
             } else {
@@ -69,45 +63,33 @@ fn main() {
         }
 
         // カーソル位置を(x,y) = (1,30) にする。原点は(1,1)。y = 30がWindows 11のターミナルのデフォルト最終行っぽい。
-        print!("\x1b[30;1H");
-        print!("esc: {:3}  ", get_key_state_str(&key_state_esc));
-        print!("q: {:3}  ", get_key_state_str(&key_state_q));
-        print!("[sp]: {:3}  ", get_key_state_str(&key_state_space));
-        print!("← : {:3}  ", get_key_state_str(&key_state_left_arrow));
-        print!("↑ : {:3}  ", get_key_state_str(&key_state_up_arrow));
-        print!("→ : {:3}  ", get_key_state_str(&key_state_right_arrow));
-        print!("↓ : {:3}  ", get_key_state_str(&key_state_down_arrow));
-        print!("x:{:3}  ", player1_pos_x);
-        print!("y:{:3}  ", player1_pos_y);
+        cvt::set_cursor_position(60, 1);
+        print!("esc   : {:9}  ", esc.get_key_state_str());
+        cvt::set_cursor_position(60, 2);
+        print!("[sp]  : {:9}  ", space.get_key_state_str());
+        cvt::set_cursor_position(60, 3);
+        print!("q     : {:9}  ", q.get_key_state_str());
+        cvt::set_cursor_position(60, 4);
+        print!("←     : {:9}  ", left_arrow.get_key_state_str());
+        cvt::set_cursor_position(60, 5);
+        print!("↑     : {:9}  ", up_arrow.get_key_state_str());
+        cvt::set_cursor_position(60, 6);
+        print!("→     : {:9}  ", right_arrow.get_key_state_str());
+        cvt::set_cursor_position(60, 7);
+        print!("↓     : {:9}  ", down_arrow.get_key_state_str());
+        cvt::set_cursor_position(60, 8);
+        print!("(x, y):({:2}, {:2})", player1_pos_x, player1_pos_y);
 
-        print!("\x1b[{};{}H", player1_pos_y, player1_pos_x);
+        cvt::set_cursor_position(player1_pos_x, player1_pos_y);
         print!("{}", player1);
 
-        if let KeyState::Pressed = key_state_esc {
-            print!("\x1b[?25h"); // カーソルを出す。
-            print!("\x1b[?1049l"); // メイン画面
+        if let KeyState::Pressed = esc.get_key_state() {
+            cvt::set_cursor_visible(); // カーソルを出す。
+            cvt::use_main_screen_buffer(); // メイン画面
             break;
         }
 
         // 程よくplayerを動かすためにスリープを挟む。
         thread::sleep(time::Duration::from_millis(10));
-    }
-}
-
-// https://liclog.net/getasynckeystate-function-vba-macro-catia-v5/
-// https://thom.hateblo.jp/entry/2019/03/10/125326
-fn get_key_state(target_key_state: i16) -> KeyState {
-    const KEY_PRESSED: i16 = -32768;
-    if target_key_state & KEY_PRESSED == KEY_PRESSED {
-        KeyState::Pressed
-    } else {
-        KeyState::Unpressed
-    }
-}
-
-fn get_key_state_str(key_state: &KeyState) -> &'static str {
-    match key_state {
-        KeyState::Pressed => "on",
-        KeyState::Unpressed => "off",
     }
 }
