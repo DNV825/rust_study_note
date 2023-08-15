@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 675 350" style="width:675px; height:350px; border-style:solid; border-width: 1px;">
+<svg xmlns="http://www.w3.org/2000/svg" style="width:675px; height:350px; border-style:solid; border-width: 1px;">
   <!-- 凡例 -->
   <rect x="520" y="10" width="10" height="10" style="stroke: #000000; fill: #ffff77;"/>
   <text x="530" y="20" style="text-anchor: start">：口の開き方</text>
