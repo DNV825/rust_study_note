@@ -157,15 +157,15 @@ IPA (International Phonetic Allphabet)
 
 ### 英語の母音発声時の舌の位置
 
-赤字は英語で登場する発音記号。記号が対にになっているところは右側のものが円唇母音を表す。
+赤字は英語で登場する発音記号。記号が対にになっているところは右側のものが円唇母音を表す。頑張ってSVGで描いた画像だが、GitHubのmarkdownをプレビューしてもsvg画像が表示されないので、png化したものをリンクする。
 
-![./img/Vowels.svg](./img/Vowels.svg)
+![./img/Vowels.png](./img/Vowels.png)
 
 ## （参考）日本語の母音発声時の舌の位置
 
 図2は日本語の母音発声時の舌の位置を母音図へプロットしたもの。しっかり声を出してみると、なんとなくわかる気がしてくる。
 
-![./img/Japanese_Vowels.svg](./img/Japanese_Vowels.svg)
+![./img/Japanese_Vowels.png](./img/Japanese_Vowels.png)
 
 <https://seesaawiki.jp/w/qvarie/d/%A5%D5%A5%C3%A5%AF%C9%D5%A4%AD%A1%DA%A5%B7%A5%E5%A5%EF%A1%BC%A1%DB>
 <https://ja.wikipedia.org/wiki/IPA%E6%8B%A1%E5%BC%B5>
