@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<svg xmlns="http://www.w3.org/2000/svg" style="width:675px; height:350px; border-style:solid; border-width: 1px;">
+  <!-- 凡例 -->
+  <rect x="520" y="10" width="10" height="10" style="stroke: #000000; fill: #ffff77;"/>
+  <text x="530" y="20" style="text-anchor: start">：口の開き方</text>
+  <rect x="520" y="30" width="10" height="10" style="stroke: #000000; fill: #aaddbb;"/>
+  <text x="530" y="40" style="text-anchor: start">：舌の頂点</text>
+  <rect x="5" y="90" width="145" height="30" style="stroke: #000000; fill: #ffff77;"/>
+  <!-- 見出し（口の開き方） -->
+  <text x="10" y="110" style="text-anchor: start">Close（狭）</text>
+  <rect x="5" y="150" width="145" height="30" style="stroke: #000000; fill: #ffff77;"/>
+  <text x="10" y="170" style="text-anchor: start">Close-mid（半狭）</text>
+  <rect x="5" y="210" width="145" height="30" style="stroke: #000000; fill: #ffff77;"/>
+  <text x="10" y="230" style="text-anchor: start">Open-mid（半広）</text>
+  <rect x="5" y="270" width="145" height="30" style="stroke: #000000; fill: #ffff77;"/>
+  <text x="10" y="290" style="text-anchor: start;">Open（広）</text>
+  <rect x="165" y="55" width="145" height="30" style="stroke: #000000; fill: #aaddbb;"/>
+  <!-- 見出し（舌の位置） -->
+  <text x="170" y="75" style="text-anchor: start">Front（前舌）</text>
+  <rect x="345" y="55" width="145" height="30" style="stroke: #000000; fill: #aaddbb;"/>
+  <text x="350" y="75" style="text-anchor: start">Central（中舌）</text>
+  <rect x="525" y="55" width="145" height="30" style="stroke: #000000; fill: #aaddbb;"/>
+  <text x="530" y="75" style="text-anchor: start">Back（奥舌）</text>
+  <!-- Close（狭）の横線 -->
+  <line x1="240" y1="105" x2="600" y2="105" style="stroke:#000000; stroke-width: 2px;" />
+  <circle cx="240" cy="105" r="3" style="stroke:#000000; fill: #000000;"/>
+  <circle cx="420" cy="105" r="3" style="stroke:#000000; fill: #000000;"/>
+  <circle cx="600" cy="105" r="3" style="stroke:#000000; fill: #000000;"/>
+  <!-- Close-mid（半狭）の横線 -->
+  <line x1="286" y1="165" x2="600" y2="165" style="stroke:#000000; stroke-width: 2px;" />
+  <circle cx="286" cy="165" r="3" style="stroke:#000000; fill: #000000;"/>
+  <circle cx="443" cy="165" r="3" style="stroke:#000000; fill: #000000;"/>
+  <circle cx="600" cy="165" r="3" style="stroke:#000000; fill: #000000;"/>
+  <!-- Close-mid（半広）の横線 -->
+  <line x1="334" y1="225" x2="600" y2="225" style="stroke:#000000; stroke-width: 2px;" />
+  <circle cx="334" cy="225" r="3" style="stroke:#000000; fill: #000000;"/>
+  <circle cx="467" cy="225" r="3" style="stroke:#000000; fill: #000000;"/>
+  <circle cx="600" cy="225" r="3" style="stroke:#000000; fill: #000000;"/>
+  <!-- Open（広）の横線 -->
+  <line x1="380" y1="285" x2="600" y2="285" style="stroke:#000000; stroke-width: 2px;" />
+  <circle cx="380" cy="285" r="3" style="stroke:#000000; fill: #000000;"/>
+  <circle cx="600" cy="285" r="3" style="stroke:#000000; fill: #000000;"/>
+  <!-- Close（狭）,Front（前舌）からOpen（広）,Central（中舌）への縦線 -->
+  <line x1="240" y1="105" x2="380" y2="285" style="stroke: #000000; stroke-width: 2px;"/>
+  <!-- Close（狭）,Central（中舌）からOpen（広）,Central（中舌）への縦線 -->
+  <line x1="420" y1="105" x2="490" y2="285" style="stroke: #000000; stroke-width: 2px;"/>
+  <!-- Close（狭）,Back（奥舌）からOpen（広）,Back（奥舌）への縦線 -->
+  <line x1="600" y1="105" x2="600" y2="285" style="stroke: #000000; stroke-width: 2px;"/>
+  <!-- 発音記号 Close（狭）,Front（前舌）-->
+  <rect x="310" y="90" width="1.5em" height="1.5em" style="fill: #ffffff;" />
+  <text x="310" y="110" style="font-size: 1.3em; font-weight: bold; fill: #000000;">い</text>
+  <!-- 発音記号 Close（狭）とClose-mid（半狭）の中間,Back（奥舌） -->
+  <rect x="585" y="120" width="1.5em" height="1.5em" style="fill: #ffffff;" />
+  <text x="585" y="140" style="font-size: 1.3em; font-weight: bold; fill: #000000;">う</text>
+  <!-- 発音記号 Close-mid（半狭）とOpen-mid（半広）の中間,Front（前舌） -->
+  <rect x="300" y="180" width="1.5em" height="1.5em" style="fill: #ffffff;" />
+  <text x="300" y="200" style="font-size: 1.3em; font-weight: bold; fill: #000000;">え</text>
+  <!-- 発音記号 Close-mid（半狭）とOpen-mid（半広）の中間,Back（奥舌） -->
+  <rect x="590" y="180" width="1.5em" height="1.5em" style="fill: #ffffff;" />
+  <text x="590" y="200" style="font-size: 1.3em; font-weight: bold; fill: #000000;">お</text>
+  <!-- 発音記号 Open（広）,Central（中舌） -->
+  <rect x="480" y="275" width="1.5em" height="1.5em" style="fill: #ffffff;" />
+  <text x="480" y="295" style="font-size: 1.3em; font-weight: bold; fill: #000000;">あ</text>
+  <text x="337" y="340" style="text-anchor: middle;">図2 -- Japanese Vowels（日本語の母音図）</text>
+</svg>
