@@ -83,7 +83,7 @@
   <rect x="560" y="155" width="1.5em" height="1.5em" style="fill: #ffffff;" />
   <text x="565" y="170" style="font-size: 1.3em; font-weight: bold; fill: #000000;">ɤ</text>
   <rect x="615" y="155" width="1.5em" height="1.5em" style="fill: #ffffff;" />
-  <text x="620" y="170" style="font-size: 1.3em; font-weight: bold; fill: #000000;">o</text>
+  <text x="620" y="170" style="font-size: 1.3em; font-weight: bold; fill: #ff0000;">o</text>
   <!-- 発音記号 Close-mid（半狭）とOpen-mid（半広）の中間,Central（中舌） -->
   <rect x="440" y="180" width="1.5em" height="1.5em" style="fill: #ffffff;" />
   <text x="445" y="200" style="font-size: 1.3em; font-weight: bold; fill: #000000;">ə</text>

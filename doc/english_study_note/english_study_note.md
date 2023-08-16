@@ -89,94 +89,158 @@ How much did it cost / to send the parcel? ← 区切ったバージョン。
 
 ## 英語の発音記号
 
-正直ぜんぜん音を聞き取れないので、いったん遠回りして発音記号について勉強する。
-頭の中で発音記号をイメージできれば、きっと口にも出せるだろう。
+ディクテーションをやってみたところ、ぜんぜん音を聞き取れなかった。読み上げが早いし。
 
-ラテン文字と同じ記号はラテン文字と同じ名前（[a]はlower-case a、[I]はcapital I）
-ギリシャ文字など、元ネタのある文字は元ネタと同じ名前（[θ]はtheta、[ε]はepsilon）
+対策が必要だと感じるので、いったん遠回りして発音記号について勉強する。正式な発音を口にすることで、「音を聞く → 頭の中で発音記号をイメージする → 文字に起こす」ことができるようになるに違いない。
 
-大抵の発音記号は「Winキー+.」から「ラテン文字」を選べば入力できる。
-[ː]は長音記号。この文字は「ちょうおん」を変換すると出てくる。
+### 発音記号に使われる文字について
 
-文字につける記号をdiacritial markと呼ぶ。
-[ɚ]の"~"をhook、[o&#x032C;]のvをsubscript wedgeと呼ぶ。
+発音記号に使われる文字はIPA (International Phonetic Allphabet) が定めたものが一般に使われているらしい。文字自体の名前も1つではなく、非常に検索しづらかった。
 
-unicodeでsubscript wedgeを表現する場合、`[d&#x032c;]`と入力すると[d&#x032c;]と表示できる。
-アクセント記号は、`[e&#x300;]`で[e&#x300;]、`[e&#x301;]`で[e&#x301;]と表示できる。
+過去に使われていた文字が元ネタになっているケースもあり、iotaさんのブログ記事 [発音記号の名まえ](http://toxa.cocolog-nifty.com/phonetika/2006/03/post_47ee.html) に細かい話が書かれていて勉強になる。
 
-IPA (International Phonetic Allphabet)
- "Handbook of the international Phonetic Association: A Guide to the Use of the International Phonetic Alphabet" 国際音声ハンドブック
+基本的には、
+
+- ラテン文字と同じ記号はラテン文字と同じ名前（[a]はlower case a、[ɪ]はsmall capital I）
+- ギリシャ文字など、元ネタのある文字は元ネタと同じ名前（[ɵ]はtheta、[ɛ]はepsilon）
+- 文字につける記号をdiacritial markと呼ぶ。
+  - [ɚ]の"~"はhookと呼ぶ。
+  - [o&#x032C;]の下付きのvはsubscript wedgeと呼ぶ。
+- [ː]は長音記号（length mark）。
+
+#### アクセント記号（正しくは「ストレス記号」）について
+
+アクセント記号は、正しくはストレス記号と呼ぶらしい。とはいえ、日本では一般的にアクセントという言葉を使っているので、この勉強メモでは気にせずアクセントと呼ぶ。
+
+アクセント記号はIPA方式の表記と日本で一般的に使われている方式の表記があり、両方とも理解しておくとよい
+
+表1 -- ストレス記号の表記方法
+
+| 表記方法 | 第1アクセント | 第2アクセント |
+| ---            | ---           | ---            |
+| IPA方式 | <span style="font-size: 2em;">/&#x2c8;ɑ/</span> | <span style="font-size: 2em;">/&#x2cc;ɑ/</span> |
+| 日本方式 | <span style="font-size: 2em;">/ɑ&#x301;/</span> | <span style="font-size: 2em;">/ɑ&#x300;/</span> |
+
+#### 発音記号の入力方法
+
+以下のいずれかの方法で発音記号を入力できる。基本的に面倒くさいので、後述する表2をコピペするのが良い。
+
+通常のアルファベットの発音記号
+: 通常の半角アルファベットは普通にキーボード入力すればよい。
+
+通常は入力できない文字の発音記号
+: 大抵の発音記号はutf8で実装されており、「Winキー+.」から「記号 - ラテン文字」を選べば入力できる。
+
+ギリシャ文字の発音記号
+: 発音記号で利用するのは半角文字になるため、全角入力ではなく、「Winキー+.」で入力する。例えばθとɵ、αとɑは別の文字である。
+
+ [ː]（長音記号、length mark）
+: 「ちょうおん」を変換すると出てくる。
+
+subscript wedgeを表現する場合
+: `[d&#x032c;]`で[d&#x032c;]と表示できる。
+
+IPA方式のアクセント記号
+: `[&#x2c8;ɑ]`で[&#x2c8;ɑ]、`[&#x2cc;ɑ]`で[&#x2cc;ɑ]を表示できる。
+
+日本方式のアクセント記号
+: `[e&#x300;]`で[e&#x300;]、`[e&#x301;]`で[e&#x301;]と表示できる。
+
+興味深いことに、utf8にはsubscript wedgeやアクセント記号込みの文字が用意されているようで、上記の[è]や[d̬]は1文字としてコピペすることができる。
 
 ### 英語の発音記号一覧
 
-表1 -- 英語の発音記号一覧
-| 音の分類 | No  | 記号   | 記号の名前         | 記号の名前の読み方 |
-| ---      | --- | ---    | ---                | ---    |
-| 短母音   |   1 | [ɪ]    | small capital I    | // |
-| ^        |   2 | [e]    | lower case e       | // |
-| ^        |   3 | [æ]    | ash                | // アッシュ |
-| ^        |   4 | [ɒ]    | turned script a    | // |
-| ^        |   5 | [ʌ]    | turned v           | // |
-| ^        |   6 | [U]    | capital U          | // |
-| ^        |   7 | [i]    | lower case i       | // |
-| ^        |   8 | [u]    | lower case u       | // |
-| ^        |   9 | [ə]    | turned e           | // |
-| ^        |  10 | [ɚ]    | schwa with hook    | // シュワー |
-| 長母音   |  11 | [iː]   | lower case i       | // |
-| ^        |  12 | [ɑːr]  | script a r (???) | // |
-| ^        |  13 | [ɑː]   | script a              | // |
-| ^        |  14 | [uː]   | lower case u       | // |
-| ^        |  15 | [ɔː]   | open o             | // |
-| ^        |  16 | [ɔːr]  | open o lower case r (???) | // |
-| ^        |  17 | [ɝː]   | ezh with hook                | // エッジュ with hook |
-| 二重母音 |  18 | [eɪ]   | lower case e smapp capital I | // |
-| ^        |  19 | [aɪ]
-| ^        |  20 | [ɔɪ]
-| ^        |  21 | [ɪɚ]
-| ^        |  22 | [eɚ]
-| ^        |  23 | [ʊɚ]   | turned omega schwa with hook |
-| ^        |  24 | [aʊ]
-| ^        |  25 | [oʊ\|əʊ]
-| 破裂音   |  26 | [p] [b]
-| ^        |  27 | [t] [d] [t&#x032c;] [d&#x032c;] | subscript wedge
-| ^        |  28 | [k] [g]
-| 摩擦音   |  29 | [f] [v]
-| ^        |  30 | [ɵ] [ð] | theta, eth | シータ、エズ（交差棒つきの古代文字のd）
-| ^        |  31 | [s] [z]
-| ^        |  32 | [ʃ] [ʒ] | esh, ezh | エッシュ（イタリック体の長いS）、エッジュ（ゴシック体のz、tailed zとも呼ぶ）
-| ^        |  33 | [h]
-| 破擦音   |  34 | [ʧ] | t-esh ligature | ligatureとは合字のこと。
-| ^        |  35 | [ʤ] | d-ezh ligature |
-| 鼻音     |  36 | [m]
-| ^        |  37 | [n]
-| ^        |  38 | [ŋ] | eng | エング（nに尻尾をつけたもの）
-| 側面音・接近音 | 39 | [ɭ] | L？
-| ^              | 40 | [r]
-| ^              | 41 | [w]
-| ^              | 42 | [j] | jod/yod | ヨッド。ヘブライ語の文字が元ネタ。子音のyの音。lower case j でもよい。
+表2は[英語「発音記号」の鬼50講](https://www.amazon.co.jp/%E8%8B%B1%E8%AA%9E%E3%80%8C%E7%99%BA%E9%9F%B3%E8%A8%98%E5%8F%B7%E3%80%8D%E3%81%AE%E9%AC%BC50%E8%AC%9B-%E7%B1%B3%E5%B1%B1-%E6%98%8E%E6%97%A5%E9%A6%99-ebook/dp/B09RMWYNQ1/ref=tmm_kin_swatch_0?_encoding=UTF8&qid=&sr=)を参考に書いた、英語で登場する発音記号の一覧である。
+
+ただし、「本書では、IPAに準じていますが、一般により広く使われている発音記号を使います。」と書かれているので、IPAの分類を元にしつつ、その上で著者の米山明日香さんの考えを反映したもの、ということになる。
+
+例えば、表2には「ɛ」が登場しないが、英語の発音としては存在しているようだ。
+
+表2 -- 英語で登場する発音記号一覧
+| 音の分類       | No  | 記号 (IPA Character)   | 記号の名前 (IPA Name) | 説明 |
+| ---            | --- | ---                    | ---                                     | ---    |
+| 短母音         |   1 | [ɪ]                    | small capital I                         | // |
+| ^              |   2 | [e]                    | lower case e                            | // |
+| ^              |   3 | [æ]                    | ash (/ˈæʃ/ アッシュ)                    | ash  |
+| ^              |   4 | [ɒ]                    | turned script a                         | // |
+| ^              |   5 | [ʌ]                    | turned v                                | // |
+| ^              |   6 | [U]                    | capital U                               | // |
+| ^              |   7 | [i]                    | lower case i                            | // |
+| ^              |   8 | [u]                    | lower case u                            | // |
+| ^              |   9 | [ə]                    | turned e                                | // |
+| ^              |  10 | [ɚ]                    | hooked schwa (/ʃwάː/ シュワー)          | schwa  |
+| 長母音         |  11 | [iː]                   | lower case i length mark                |  |
+| ^              |  12 | [ɑːr]                  | script a length mark lower case r       | // |
+| ^              |  13 | [ɑː]                   | script a length mark                    | // |
+| ^              |  14 | [uː]                   | lower case u length mark                | // |
+| ^              |  15 | [ɔː]                   | open o length mark                      | // |
+| ^              |  16 | [ɔːr]                  | open o length mark lower case r         | // |
+| ^              |  17 | [ɝː]                   | right hook reversed epsilon length mark | // |
+| 二重母音       |  18 | [eɪ]                   | lower case e small capital I            | // |
+| ^              |  19 | [aɪ]                   | lower case a small capital I            | // |
+| ^              |  20 | [ɔɪ]                   | open o small capital I                  | // |
+| ^              |  21 | [ɪɚ]                   | small capital I hooked schwa            | // |
+| ^              |  22 | [eɚ]                   | lower case e hooked schwa               | // |
+| ^              |  23 | [ʊɚ]                   | upsilon hooked schwa |
+| ^              |  24 | [aʊ]                   | lower case a upsilon |
+| ^              |  25 | [oʊ\|əʊ]               | lower case upsilon \| turned e upsilon |
+| 破裂音         |  26 | [p]<br>[b]             | lower case p<br>lower case b |
+| ^              |  27 | [t]<br>[d]<br>[t&#x032c;]<br>[d&#x032c;] | lower case t<br>lower case d<br> lower case t with subscript wedge (?)<br>lower case d with subscript wedge (?) |
+| ^              |  28 | [k]<br>[g]             | lower case k<br>lower case g |
+| 摩擦音         |  29 | [f]<br>[v]             | lower case f<br>lower case v |
+| ^              |  30 | [ɵ]<br>[ð]             | theta<br>eth (/ɛð/ エズ) | ðは交差棒つきの古代文字のdが元ネタ。
+| ^              |  31 | [s]<br>[z]             | lower case s<br>lower case z |
+| ^              |  32 | [ʃ]<br>[ʒ]             | esh (/ˈɛʃ/ エッシュ)<br>ezh (/ˈɛʒ/ エッジュ) | ʃはイタリック体の長いs。<br>、ʒはゴシック体のzで、tailed zとも呼ぶ。 |
+| ^              |  33 | [h]                    | lower case h |
+| 破擦音         |  34 | [ʧ]                    | t-esh ligature | ligatureとは合字のこと。
+| ^              |  35 | [ʤ]                    | d-ezh ligature |
+| 鼻音           |  36 | [m]                    | lower case m |
+| ^              |  37 | [n]                    | lower case n |
+| ^              |  38 | [ŋ]                    | eng (/ˈɛŋ/ エング) | ŋはnに尻尾をつけたもので、tailed nとも呼ぶ。 |
+| 側面音・接近音 |  39 | [ɭ]                    | right tail l
+| ^              |  40 | [r]                    | lower case r |
+| ^              |  41 | [w]                    | lower case w |
+| ^              |  42 | [j]                    | jod (/ˈjod/ ヨッド), またはyod | ヨッド。ヘブライ語の文字が元ネタ。子音のyの音。lower case j でもよい。
 
 ### 英語の母音発声時の舌の位置
 
-赤字は英語で登場する発音記号。記号が対にになっているところは右側のものが円唇母音を表す。頑張ってSVGで描いた画像だが、GitHubのmarkdownをプレビューしてもsvg画像が表示されないので、png化したものをリンクする。リンク先はsvgファイル。
+図1は[東京外語大の提供する母音図](http://www.coelang.tufs.ac.jp/ipa/vowel.php)を参考に描いた母音図で、記号が対にになっているところは右側のものが円唇母音を表す。円唇母音とは、唇を円形にすぼめて発音する音のこと。
+
+赤字は「表2 -- 英語で登場する発音記号一覧」で登場した「英語で使う発音記号」を示している。
+
+ただ、母音図は教科書によりかなり差があるらしい。[【母音図で図解！】英語の母音の舌の位置一覧](https://lion-eigo.com/pronunciation/tongue-position/) で検証されており、結果を見ると、確かに意外と細かく違っている。
 
 [![./img/Vowels.png](./img/Vowels.png)](./img/Vowels.svg)
 
-## （参考）日本語の母音発声時の舌の位置
+<!--
+この画像は頑張ってSVGで描いた画像だが、GitHubのmarkdownをプレビューしてもsvg画像が表示されない。仕方がないので、png化した画像を表示している。テキスト検索できなくなってしまうので、とても残念だ。リンク先の画像はsvgファイルである。
+-->
+
+## 日本語の母音発声時の舌の位置
 
 図2は日本語の母音発声時の舌の位置を母音図へプロットしたもの。しっかり声を出してみると、なんとなくわかる気がしてくる。
 
+こちらの母音図は[発音記号キャラ辞典](https://www.amazon.co.jp/%E7%99%BA%E9%9F%B3%E8%A8%98%E5%8F%B7%E3%82%AD%E3%83%A3%E3%83%A9%E8%BE%9E%E5%85%B8-Dacci-%E8%8B%B1%E8%AA%9E%E7%89%A9%E8%AA%9E-ebook/dp/B07N1B9YWB/ref=tmm_kin_swatch_0?_encoding=UTF8&qid=&sr=)で紹介されていた画像をもとに描いたもので、[【母音図で図解！】英語の母音の舌の位置一覧](https://lion-eigo.com/pronunciation/tongue-position/)を見ると、やはり差がある。
+
+特に「う」は、この図よりも中舌寄りかもしれない。
+
 [![./img/Japanese_Vowels.png](./img/Japanese_Vowels.png)](./img/Japanese_Vowels.svg)
 
-<https://seesaawiki.jp/w/qvarie/d/%A5%D5%A5%C3%A5%AF%C9%D5%A4%AD%A1%DA%A5%B7%A5%E5%A5%EF%A1%BC%A1%DB>
-<https://ja.wikipedia.org/wiki/IPA%E6%8B%A1%E5%BC%B5>
-<http://toxa.cocolog-nifty.com/phonetika/2006/03/post_47ee.html>
-<http://hobbit.ddo.jp/html/ipa.html>
-<https://www.geonames.de/ipa.html>
-<https://www.fy1203.com/2021/09/01/voice-input-speaking/>
-<http://www.coelang.tufs.ac.jp/ipa/vowel.php>
-<https://lion-eigo.com/pronunciation/tongue-position/>
-<https://kotobank.jp/word/円唇母音-447780#:~:text=〘名〙%20唇をまるめること,非円唇である。>
-<https://ndlonline.ndl.go.jp/#!/detail/R300000002-I032196813-00>
-<https://ci.nii.ac.jp/ncid/AA12321947?lang=ja>
-<https://kuins.repo.nii.ac.jp/record/1087/files/K15-9%20KOCHIYAMA.pdf>
-Dacci from 英語物語・リチャード川口, 発音記号キャラ辞典, 株式会社KADOKAWA, 2019/01/26, ASIN:B07N1B9YWB
+## 参考資料
+
+1. 米山明日香, 英語「発音記号」の鬼50講, 明日香出版社, 2022/01/14 第8刷, ISBN:978-4-7569-2179-6
+1. Dacci from 英語物語・リチャード川口, 発音記号キャラ辞典, 株式会社KADOKAWA, 2019/01/26, ASIN:B07N1B9YWB
+1. qvarie, フック付き【シュワー】, 世界の特殊文字wiki, 2010/02/18, <https://seesaawiki.jp/w/qvarie/d/%A5%D5%A5%C3%A5%AF%C9%D5%A4%AD%A1%DA%A5%B7%A5%E5%A5%EF%A1%BC%A1%DB>
+1. ルーミン / Baudanbau20, IPA拡張, wikipedia, 2023/08/14, <https://ja.wikipedia.org/wiki/IPA拡張>
+1. iota, 発音記号の名前, phonetika /p&#x2b0;ɔːnɛːtika&#x301;/, 2013/06/27, <http://toxa.cocolog-nifty.com/phonetika/2006/03/post_47ee.html>
+1. 高橋 誠, UnicodeのIPA発音記号の一覧, 2009/05/25, 鈴木朝子と高橋誠の部屋, <http://hobbit.ddo.jp/html/ipa.html>
+1. Simone Westermann, International Phonetic Alphabet, geonames.de, -, <https://www.geonames.de/ipa.html>
+1. 福田泰裕, Googleドキュメントの音声入力を用いた英語のスピーキング活動, 高校教師とICTのブログ [数学x情報xICT], 2021/09/01, <https://www.fy1203.com/2021/09/01/voice-input-speaking/>
+1. 東京外国語大学, ＩＰＡ　国際音声字母（記号）, 東外大言語モジュール, -, <http://www.coelang.tufs.ac.jp/ipa/vowel.php>
+1. サラ, 【母音図で図解！】英語の母音の舌の位置一覧, らいトレ, 2023/05/02, <https://lion-eigo.com/pronunciation/tongue-position/>
+1. <https://kotobank.jp/word/円唇母音-447780#:~:text=〘名〙%20唇をまるめること,非円唇である。>
+1. 河内山 真理, 有本 純, 日本における発音記号の扱いに関する問題 : 辞典と教科書, NDL ONLINE, 2022/03, <https://ndlonline.ndl.go.jp/#!/detail/R300000002-I032196813-00>
+1. 関西国際大学総合研究所, CiNii, 2008/03, <https://ci.nii.ac.jp/ncid/AA12321947?lang=ja>
+1. 河内山 真理, 有本 純, 日本における発音記号の扱いに関する問題 : 辞典と教科書, 関西国際大学 メディアライブラリー, 2022/03, <https://kuins.repo.nii.ac.jp/record/1087/files/K15-9%20KOCHIYAMA.pdf>
+1. Kwamikagami / TLJ7863 / Drmccreedy / Streapadair / R'n'B / Duck Gang II / Spitzak / Arjayay / , Unicode subscripts and superscripts, Wikipedia, 2023/08/08, <https://en.wikipedia.org/wiki/Unicode_subscripts_and_superscripts>
+1. 旺文社, 発音記号の読み方と覚え方, 英語の友, 2019/05/17, <https://eigonotomo.com/4skills/hatsuon>
