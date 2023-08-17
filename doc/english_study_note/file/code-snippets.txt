@@ -1,0 +1,138 @@
+{
+	// Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	"Print current date and time": {
+		"prefix": "ddd",
+		"body": ["$CURRENT_YEAR/$CURRENT_MONTH/$CURRENT_DATE($CURRENT_DAY_NAME_SHORT) $CURRENT_HOUR:$CURRENT_MINUTE"],
+		"description": "yyyy/mm/dd(aaa) hh:MM"
+	},
+	"Phonetic Symbols [ˈ]": {
+		"prefix": "primary-stress",
+		"body": ["ˈ"],
+		"description": "primary stress"
+	},
+	"Phonetic Symbols [ˌ]": {
+		"prefix": "secondary-stress",
+		"body": ["ˌ"],
+		"description": "secondary stress"
+	},
+	"Phonetic Symbols [ɪ]": {
+		"prefix": "small-capital-I",
+		"body": ["ɪ"],
+		"description": "small capital I"
+	},
+	"Phonetic Symbols [æ]": {
+		"prefix": "ash",
+		"body": ["æ"],
+		"description": "ash"
+	},
+	"Phonetic Symbols [ɒ]": {
+		"prefix": "turned-script-a",
+		"body": ["ɒ"],
+		"description": "turned script a"
+	},
+	"Phonetic Symbols [ʌ]": {
+		"prefix": "turned-v",
+		"body": ["ʌ"],
+		"description": "turned v"
+	},
+	"Phonetic Symbols [ə]": {
+		"prefix": "turned-e",
+		"body": ["ə"],
+		"description": "turned e"
+	},
+	"Phonetic Symbols [ɚ]": {
+		"prefix": "hooked-schwa",
+		"body": ["ɚ"],
+		"description": "hooked schwa"
+	},
+	"Phonetic Symbols [ː]": {
+		"prefix": "length-mark",
+		"body": ["ː"],
+		"description": "length mark"
+	},
+	"Phonetic Symbols [ɑ]": {
+		"prefix": "script-a",
+		"body": ["ɑ"],
+		"description": "script a"
+	},
+	"Phonetic Symbols [ɔ]": {
+		"prefix": "open-o",
+		"body": ["ɔ"],
+		"description": "open o"
+	},
+	"Phonetic Symbols [ɝ]": {
+		"prefix": "right-hook-reversed-epsilon",
+		"body": ["ɝ"],
+		"description": "right hook reversed epsilon"
+	},
+	"Phonetic Symbols [ʊ]": {
+		"prefix": "phonetic-upsilon",
+		"body": ["ʊ"],
+		"description": "upsilon"
+	},
+	"Phonetic Symbols [t̬]": {
+		"prefix": "t-with-subscript-wedge",
+		"body": ["t̬"],
+		"description": "t with subscript wedge"
+	},
+	"Phonetic Symbols [d]": {
+		"prefix": "d-with-subscript-wedge",
+		"body": ["d̬"],
+		"description": "d with subscript wedge"
+	},
+	"Phonetic Symbols [ɵ]": {
+		"prefix": "phonetic-theta",
+		"body": ["ɵ"],
+		"description": "theta"
+	},
+	"Phonetic Symbols [ð]": {
+		"prefix": "eth",
+		"body": ["ð"],
+		"description": "eth"
+	},
+	"Phonetic Symbols [ʃ]": {
+		"prefix": "esh",
+		"body": ["ʃ"],
+		"description": "esh"
+	},
+	"Phonetic Symbols [ʒ]": {
+		"prefix": "ezh",
+		"body": ["ʒ"],
+		"description": "ezh"
+	},
+	"Phonetic Symbols [ʧ]": {
+		"prefix": "t-esh-legature",
+		"body": ["ʧ"],
+		"description": "t-esh legature"
+	},
+	"Phonetic Symbols [ʤ]": {
+		"prefix": "t-ezh-legature",
+		"body": ["ʤ"],
+		"description": "t-ezh legature"
+	},
+	"Phonetic Symbols [ŋ]": {
+		"prefix": "eng",
+		"body": ["ŋ"],
+		"description": "eng"
+	},
+	"Phonetic Symbols [ɭ]": {
+		"prefix": "right-tail-l",
+		"body": ["ɭ"],
+		"description": "right tail l"
+	}
+}
