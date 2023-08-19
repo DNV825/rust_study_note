@@ -21,117 +21,117 @@
 		"description": "yyyy/mm/dd(aaa) hh:MM"
 	},
 	"Phonetic Symbols [ˈ]": {
-		"prefix": "primary-stress",
+		"prefix": "@primary-stress",
 		"body": ["ˈ"],
 		"description": "primary stress"
 	},
 	"Phonetic Symbols [ˌ]": {
-		"prefix": "secondary-stress",
+		"prefix": "@secondary-stress",
 		"body": ["ˌ"],
 		"description": "secondary stress"
 	},
 	"Phonetic Symbols [ɪ]": {
-		"prefix": "small-capital-I",
+		"prefix": "@small-capital-I",
 		"body": ["ɪ"],
 		"description": "small capital I"
 	},
 	"Phonetic Symbols [æ]": {
-		"prefix": "ash",
+		"prefix": "@ash",
 		"body": ["æ"],
 		"description": "ash"
 	},
 	"Phonetic Symbols [ɒ]": {
-		"prefix": "turned-script-a",
+		"prefix": "@turned-script-a",
 		"body": ["ɒ"],
 		"description": "turned script a"
 	},
 	"Phonetic Symbols [ʌ]": {
-		"prefix": "turned-v",
+		"prefix": "@turned-v",
 		"body": ["ʌ"],
 		"description": "turned v"
 	},
 	"Phonetic Symbols [ə]": {
-		"prefix": "turned-e",
+		"prefix": "@turned-e",
 		"body": ["ə"],
 		"description": "turned e"
 	},
 	"Phonetic Symbols [ɚ]": {
-		"prefix": "hooked-schwa",
+		"prefix": "@hooked-schwa",
 		"body": ["ɚ"],
 		"description": "hooked schwa"
 	},
 	"Phonetic Symbols [ː]": {
-		"prefix": "length-mark",
+		"prefix": "@length-mark",
 		"body": ["ː"],
 		"description": "length mark"
 	},
 	"Phonetic Symbols [ɑ]": {
-		"prefix": "script-a",
+		"prefix": "@script-a",
 		"body": ["ɑ"],
 		"description": "script a"
 	},
 	"Phonetic Symbols [ɔ]": {
-		"prefix": "open-o",
+		"prefix": "@open-o",
 		"body": ["ɔ"],
 		"description": "open o"
 	},
 	"Phonetic Symbols [ɝ]": {
-		"prefix": "right-hook-reversed-epsilon",
+		"prefix": "@right-hook-reversed-epsilon",
 		"body": ["ɝ"],
 		"description": "right hook reversed epsilon"
 	},
 	"Phonetic Symbols [ʊ]": {
-		"prefix": "phonetic-upsilon",
+		"prefix": "@upsilon",
 		"body": ["ʊ"],
 		"description": "upsilon"
 	},
 	"Phonetic Symbols [t̬]": {
-		"prefix": "t-with-subscript-wedge",
+		"prefix": "@t-with-subscript-wedge",
 		"body": ["t̬"],
 		"description": "t with subscript wedge"
 	},
 	"Phonetic Symbols [d]": {
-		"prefix": "d-with-subscript-wedge",
+		"prefix": "@d-with-subscript-wedge",
 		"body": ["d̬"],
 		"description": "d with subscript wedge"
 	},
 	"Phonetic Symbols [ɵ]": {
-		"prefix": "phonetic-theta",
+		"prefix": "@theta",
 		"body": ["ɵ"],
 		"description": "theta"
 	},
 	"Phonetic Symbols [ð]": {
-		"prefix": "eth",
+		"prefix": "@eth",
 		"body": ["ð"],
 		"description": "eth"
 	},
 	"Phonetic Symbols [ʃ]": {
-		"prefix": "esh",
+		"prefix": "@esh",
 		"body": ["ʃ"],
 		"description": "esh"
 	},
 	"Phonetic Symbols [ʒ]": {
-		"prefix": "ezh",
+		"prefix": "@ezh",
 		"body": ["ʒ"],
 		"description": "ezh"
 	},
 	"Phonetic Symbols [ʧ]": {
-		"prefix": "t-esh-legature",
+		"prefix": "@t-esh-legature",
 		"body": ["ʧ"],
 		"description": "t-esh legature"
 	},
 	"Phonetic Symbols [ʤ]": {
-		"prefix": "t-ezh-legature",
+		"prefix": "@t-ezh-legature",
 		"body": ["ʤ"],
 		"description": "t-ezh legature"
 	},
 	"Phonetic Symbols [ŋ]": {
-		"prefix": "eng",
+		"prefix": "@eng",
 		"body": ["ŋ"],
 		"description": "eng"
 	},
 	"Phonetic Symbols [ɭ]": {
-		"prefix": "right-tail-l",
+		"prefix": "@right-tail-l",
 		"body": ["ɭ"],
 		"description": "right tail l"
 	}
