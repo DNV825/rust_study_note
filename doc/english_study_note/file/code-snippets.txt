@@ -116,14 +116,14 @@
 		"description": "ezh"
 	},
 	"Phonetic Symbols [ʧ]": {
-		"prefix": "@t-esh-legature",
+		"prefix": "@t-esh-ligature",
 		"body": ["ʧ"],
-		"description": "t-esh legature"
+		"description": "t-esh ligature"
 	},
 	"Phonetic Symbols [ʤ]": {
-		"prefix": "@t-ezh-legature",
+		"prefix": "@d-ezh-ligature",
 		"body": ["ʤ"],
-		"description": "t-ezh legature"
+		"description": "d-ezh ligature"
 	},
 	"Phonetic Symbols [ŋ]": {
 		"prefix": "@eng",

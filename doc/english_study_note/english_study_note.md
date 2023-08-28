@@ -209,13 +209,13 @@ r音化の表現にはいくつかのパターンがある。1つは/r/で表現
 あと、発音記号の入力が大変なので、（[snippet](./file/code-snippets.txt)を用意してみた。emmet的なものがあるともっと助かるのだけれども。
 
 表2 -- 英語で登場する発音記号一覧
-| 音の分類       | No  | 記号（IPA Character）  | 記号の名前（IPA Name）                  | 説明 |
-| ---            | --- | ---                    | ---                                     | ---    |
-| 短母音         |   1 | [ɪ]                    | small capital I                         | // |
+| 音の分類       | No  | 記号（IPA Character）  | 記号の名前（IPA Name）                  | 説明   | フレーズ |
+| ---            | --- | ---                    | ---                                     | ---    | ---      |
+| 短母音         |   1 | [ɪ]                    | small capital I                         | 唇は自然な感じで、イというイメージ。「ぃや～今日も頑張った～」の「ぃ」。<br>it /ɪt/, pick /pɪk/ |
 | ^              |   2 | [e]                    | lower case e                            | // |
-| ^              |   3 | [æ]                    | ash (/ˈæʃ/ アッシュ)                    | ash  |
+| ^              |   3 | [æ]                    | ash (/ˈæʃ/ アッシュ)                    | 口を横に引いた「え」。日本語だと「あ」に置き換えられがちだが、実際の発音は全然違う。<br>cat /kæt/, apple /æpəɭ/, cap /kæp/, bad /bæd/, man /mæn/, half /hæf/ | I'm so happy! /əm sˈoʊ hˈæpi/<br>I love to dance. /ə lˈʌv tə dˈæns/<br>That's fantastic! /ðˈæts fæntˈæstiɪk/<br>The cat took a nap. /ðə kæt eɪ næp/ |
 | ^              |   4 | [ɒ]                    | turned script a                         | イギリス英語のみに登場する。 |
-| ^              |   5 | [ʌ]                    | turned v                                | // |
+| ^              |   5 | [ʌ]                    | turned v                                | こもりぎみの「あ」<br>green onion /griːn ʌnjən/, umbrella /ʌmbrˈelə/, cup /kʌp/ |
 | ^              |   6 | [ʊ]                    | upsilon                                 | // |
 | ^              |   7 | [i]                    | lower case i                            | // |
 | ^              |   8 | [u]                    | lower case u                            | // |
