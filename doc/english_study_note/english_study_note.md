@@ -215,15 +215,15 @@ r音化の表現にはいくつかのパターンがある。1つは/r/で表現
 | ^              |   2 | [e]                    | lower case e                            | // |
 | ^              |   3 | [æ]                    | ash (/ˈæʃ/ アッシュ)                    | 口を横に引いた「え」。日本語だと「あ」に置き換えられがちだが、実際の発音は全然違う。<br>cat /kæt/, apple /æpəɭ/, cap /kæp/, bad /bæd/, man /mæn/, half /hæf/ | I'm so happy! /əm sˈoʊ hˈæpi/<br>I love to dance. /ə lˈʌv tə dˈæns/<br>That's fantastic! /ðˈæts fæntˈæstiɪk/<br>The cat took a nap. /ðə kæt eɪ næp/ |
 | ^              |   4 | [ɒ]                    | turned script a                         | イギリス英語のみに登場する。 |
-| ^              |   5 | [ʌ]                    | turned v                                | こもりぎみの「あ」<br>green onion /griːn ʌnjən/, umbrella /ʌmbrˈelə/, cup /kʌp/ |
+| ^              |   5 | [ʌ]                    | turned v                                | こもりぎみの「あ」。日本語の「あ」と比べると半開き。口は緩く、下は引き気味に。<br>green onion /griːn ʌnjən/, umbrella /ʌmbrˈelə/, cup /kʌp/ | Tough lack. /tʌf lʌk/<br>You are jumping the gun. /jʊ ər ʤˈʌmpɪŋ ðə gʌn/<br>I'm feeling under the weather. /əm fiːɭiŋ ʌndər ðə wˈeðər/ |
 | ^              |   6 | [ʊ]                    | upsilon                                 | // |
 | ^              |   7 | [i]                    | lower case i                            | // |
 | ^              |   8 | [u]                    | lower case u                            | // |
-| ^              |   9 | [ə]                    | turned e                                | No.9とNo.10は同じ音として扱うこともある。 |
+| ^              |   9 | [ə]                    | turned e                                | 口の力を抜いて半開きにして、かろうじて声を出すくらいで「あ」。<br>クリリンが「あ…あ……」とか言ってるシーンのイメージ？<br>アクセントがないときに現れる母音。No.9とNo.10は同じ音として扱うこともある。<br>aroma /ərˈoʊmə/, banana /bənˈænə/, pajamas /pəʤˈɑməz/ | Take it easy. /tˈeɪk ət ˈiːzi/<br>It's not that difficult. /əts nɑt ðæt dˈifəkəɭt/<br>You can take your time. /jə kən tˈeɪk jə tˈaɪm/ |
 | ^              |  10 | [ɚ]                    | hooked schwa (/ʃwάː/ シュワー)          | schwa  |
 | 長母音         |  11 | [iː]                   | lower case i length mark                |  |
 | ^              |  12 | [ɑːr]                  | script a length mark lower case r       | // |
-| ^              |  13 | [ɑː]                   | script a length mark                    | // |
+| ^              |  13 | [ɑː]                   | script a length mark                    | 口の形を「あ」にして「お」と発音すると出る音。<br>// |
 | ^              |  14 | [uː]                   | lower case u length mark                | // |
 | ^              |  15 | [ɔː]                   | open o length mark                      | // |
 | ^              |  16 | [ɔːr]                  | open o length mark lower case r         | // |
@@ -253,6 +253,17 @@ r音化の表現にはいくつかのパターンがある。1つは/r/で表現
 | ^              |  40 | [r]                    | lower case r |
 | ^              |  41 | [w]                    | lower case w |
 | ^              |  42 | [j]                    | jod (/ˈjod/ ヨッド), またはyod | ヨッド。ヘブライ語の文字が元ネタ。子音のyの音。lower case j でもよい。
+
+まずは4種類のa = /a/, /ə/, /æ/, /ʌ/を練習するのが良いらしい？ /ɑ/は口を大きく開けて「あ」。
+I got this! まかせとけ！ /aɪ gɑt ðɪs/
+That's not funny. 笑えねーよ /ðæts nɑt fʌni/
+This is the bomb! 最高にうまい！ /ðɪs ɪz ðə bɑm/
+
+- /ɑ/, /æ/, /ʌ/ の例文
+  <ruby>/ðˈeɚ/<rt>There</rt></ruby> <ruby>/ɪz/<rt>is</rt></ruby> <ruby>/ðə/<rt>the</rt></ruby> <ruby>/kɑp/<rt>cop</rt></ruby> <ruby>/wìð/<rt>with</rt></ruby> <ruby>/ðə/<rt>the</rt></ruby> <ruby>/kæp/<rt>cap</rt></ruby> <ruby>/ɔːn/<rt>on</rt></ruby> <ruby>/ðə/<rt>the</rt></ruby> <ruby>/kˈʌp/<rt>cup</rt></ruby>.
+
+<https://qr.ae/pyBsdN>
+<https://www.youtube.com/@SoundsAmerican>
 
 ### 英語の母音発声時の舌の位置
 
