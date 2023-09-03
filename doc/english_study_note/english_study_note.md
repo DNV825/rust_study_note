@@ -211,31 +211,31 @@ r音化の表現にはいくつかのパターンがある。1つは/r/で表現
 表2 -- 英語で登場する発音記号一覧
 | 音の分類       | No  | 記号（IPA Character）  | 記号の名前（IPA Name）                  | 説明   | フレーズ |
 | ---            | --- | ---                    | ---                                     | ---    | ---      |
-| 短母音         |   1 | [ɪ]                    | small capital I                         | 唇は自然な感じで、イというイメージ。「ぃや～今日も頑張った～」の「ぃ」。<br>it /ɪt/, pick /pɪk/ |
-| ^              |   2 | [e]                    | lower case e                            | // |
+| 短母音         |   1 | [ɪ]                    | small capital I                         | 口を横に引かずに「い」。唇は自然な感じで、イというイメージ。「ぃや～今日も頑張った～」の「ぃ」。<br>it /ɪt/, pick /pɪk/ |
+| ^              |   2 | [e]                    | lower case e                            | 日本語の「え」よりもちょっと盾に大きく口を開けて「え」。// |
 | ^              |   3 | [æ]                    | ash (/ˈæʃ/ アッシュ)                    | 口を横に引いた「え」。日本語だと「あ」に置き換えられがちだが、実際の発音は全然違う。<br>cat /kæt/, apple /æpəɭ/, cap /kæp/, bad /bæd/, man /mæn/, half /hæf/ | I'm so happy! /əm sˈoʊ hˈæpi/<br>I love to dance. /ə lˈʌv tə dˈæns/<br>That's fantastic! /ðˈæts fæntˈæstiɪk/<br>The cat took a nap. /ðə kæt eɪ næp/ |
 | ^              |   4 | [ɒ]                    | turned script a                         | イギリス英語のみに登場する。 |
-| ^              |   5 | [ʌ]                    | turned v                                | こもりぎみの「あ」。日本語の「あ」と比べると半開き。口は緩く、下は引き気味に。<br>green onion /griːn ʌnjən/, umbrella /ʌmbrˈelə/, cup /kʌp/ | Tough lack. /tʌf lʌk/<br>You are jumping the gun. /jʊ ər ʤˈʌmpɪŋ ðə gʌn/<br>I'm feeling under the weather. /əm fiːɭiŋ ʌndər ðə wˈeðər/ |
-| ^              |   6 | [ʊ]                    | upsilon                                 | // |
+| ^              |   5 | [ʌ]                    | turned v                                | こもりぎみの「あ」。日本語の「あ」と比べると半開き。口は緩く、舌は引き気味に。<br>green onion /griːn ʌnjən/, umbrella /ʌmbrˈelə/, cup /kʌp/ | Tough lack. /tʌf lʌk/<br>You are jumping the gun. /jʊ ər ʤˈʌmpɪŋ ðə gʌn/<br>I'm feeling under the weather. /əm fiːɭiŋ ʌndər ðə wˈeðər/ |
+| ^              |   6 | [ʊ]                    | upsilon                                 | 口を尖らせないで「う」// |
 | ^              |   7 | [i]                    | lower case i                            | // |
 | ^              |   8 | [u]                    | lower case u                            | // |
-| ^              |   9 | [ə]                    | turned e                                | 口の力を抜いて半開きにして、かろうじて声を出すくらいで「あ」。<br>クリリンが「あ…あ……」とか言ってるシーンのイメージ？<br>アクセントがないときに現れる母音。No.9とNo.10は同じ音として扱うこともある。<br>aroma /ərˈoʊmə/, banana /bənˈænə/, pajamas /pəʤˈɑməz/ | Take it easy. /tˈeɪk ət ˈiːzi/<br>It's not that difficult. /əts nɑt ðæt dˈifəkəɭt/<br>You can take your time. /jə kən tˈeɪk jə tˈaɪm/ |
+| ^              |   9 | [ə]                    | turned e, schwa                         | 口の力を抜いて半開きにして、かろうじて声を出すくらいで「あ」。<br>クリリンが「あ…あ……」とか言ってるシーンのイメージ？<br>アクセントがないときに現れる母音。No.9とNo.10は同じ音として扱うこともある。<br>aroma /ərˈoʊmə/, banana /bənˈænə/, pajamas /pəʤˈɑməz/ | Take it easy. /tˈeɪk ət ˈiːzi/<br>It's not that difficult. /əts nɑt ðæt dˈifəkəɭt/<br>You can take your time. /jə kən tˈeɪk jə tˈaɪm/ |
 | ^              |  10 | [ɚ]                    | hooked schwa (/ʃwάː/ シュワー)          | schwa  |
-| 長母音         |  11 | [iː]                   | lower case i length mark                |  |
+| 長母音         |  11 | [iː]                   | lower case i length mark                | 口を横に引いて日本語の「い」。結果的に「いぃ」みたいな感じになる。 |
 | ^              |  12 | [ɑːr]                  | script a length mark lower case r       | // |
 | ^              |  13 | [ɑː]                   | script a length mark                    | 口の形を「あ」にして「お」と発音すると出る音。<br>// |
-| ^              |  14 | [uː]                   | lower case u length mark                | // |
+| ^              |  14 | [uː]                   | lower case u length mark                | 口をとがらせて「う」。結果的に「うぅ」みたいな感じになる。// |
 | ^              |  15 | [ɔː]                   | open o length mark                      | // |
 | ^              |  16 | [ɔːr]                  | open o length mark lower case r         | // |
 | ^              |  17 | [ɝː]                   | right hook reversed epsilon length mark | // |
-| 二重母音       |  18 | [eɪ]                   | lower case e small capital I            | // |
-| ^              |  19 | [aɪ]                   | lower case a small capital I            | // |
+| 二重母音       |  18 | [eɪ]                   | lower case e small capital I            | 日本語で「えい」。// |
+| ^              |  19 | [aɪ]                   | lower case a small capital I            | 日本語で「あい」。// |
 | ^              |  20 | [ɔɪ]                   | open o small capital I                  | // |
 | ^              |  21 | [ɪɚ]                   | small capital I hooked schwa            | // |
 | ^              |  22 | [eɚ]                   | lower case e hooked schwa               | // |
 | ^              |  23 | [ʊɚ]                   | upsilon hooked schwa |
-| ^              |  24 | [aʊ]                   | lower case a upsilon |
-| ^              |  25 | [oʊ\|əʊ]               | lower case upsilon \| turned e upsilon |
+| ^              |  24 | [aʊ]                   | lower case a upsilon                    | 日本語で「あう」。
+| ^              |  25 | [oʊ\|əʊ]               | lower case upsilon \| turned e upsilon  | 日本語で「おう」。「う」もきっちり発音すること。 |
 | 破裂音         |  26 | [p]<br>[b]             | lower case p<br>lower case b |
 | ^              |  27 | [t]<br>[d]<br>[t&#x032c;]<br>[d&#x032c;] | lower case t<br>lower case d<br> lower case t with subscript wedge (?)<br>lower case d with subscript wedge (?) |
 | ^              |  28 | [k]<br>[g]             | lower case k<br>lower case g |
@@ -264,6 +264,17 @@ This is the bomb! 最高にうまい！ /ðɪs ɪz ðə bɑm/
 
 <https://qr.ae/pyBsdN>
 <https://www.youtube.com/@SoundsAmerican>
+
+母音表は外側に行くほどはっきりした音になる。内側の音は緩め。
+短母音の音(1)、長母音か二重母音の(2)。
+
+| - | (1) | (2) |
+| --- | --- | --- |
+| a | æ | ei |
+| i | ɪ | ai |
+| u | ʌ | juː |
+| e | e | iː |
+| o | ɑ | oʊ |
 
 ### 英語の母音発声時の舌の位置
 
