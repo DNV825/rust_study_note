@@ -51,9 +51,9 @@
 		"description": "turned v"
 	},
 	"Phonetic Symbols [ə]": {
-		"prefix": "@turned-e",
+		"prefix": "@schwa",
 		"body": ["ə"],
-		"description": "turned e"
+		"description": "schwa"
 	},
 	"Phonetic Symbols [ɚ]": {
 		"prefix": "@hooked-schwa",

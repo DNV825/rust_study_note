@@ -214,29 +214,29 @@ r音化の表現にはいくつかのパターンがある。1つは/r/で表現
 | 短母音         |   1 | [ɪ]                    | small capital I                         | 口を横に引かずに「い」。唇は自然な感じで、イというイメージ。「ぃや～今日も頑張った～」の「ぃ」。<br>it /ɪt/, pick /pɪk/ |
 | ^              |   2 | [e]                    | lower case e                            | 日本語の「え」よりもちょっと盾に大きく口を開けて「え」。// |
 | ^              |   3 | [æ]                    | ash (/ˈæʃ/ アッシュ)                    | 口を横に引いた「え」。日本語だと「あ」に置き換えられがちだが、実際の発音は全然違う。<br>cat /kæt/, apple /æpəɭ/, cap /kæp/, bad /bæd/, man /mæn/, half /hæf/ | I'm so happy! /əm sˈoʊ hˈæpi/<br>I love to dance. /ə lˈʌv tə dˈæns/<br>That's fantastic! /ðˈæts fæntˈæstiɪk/<br>The cat took a nap. /ðə kæt eɪ næp/ |
-| ^              |   4 | [ɒ]                    | turned script a                         | イギリス英語のみに登場する。 |
+| ^              |   4 | [ɒ]                    | turned script a                         | （イギリス英語のみに登場するので省略）。 |
 | ^              |   5 | [ʌ]                    | turned v                                | こもりぎみの「あ」。日本語の「あ」と比べると半開き。口は緩く、舌は引き気味に。<br>green onion /griːn ʌnjən/, umbrella /ʌmbrˈelə/, cup /kʌp/ | Tough lack. /tʌf lʌk/<br>You are jumping the gun. /jʊ ər ʤˈʌmpɪŋ ðə gʌn/<br>I'm feeling under the weather. /əm fiːɭiŋ ʌndər ðə wˈeðər/ |
 | ^              |   6 | [ʊ]                    | upsilon                                 | 口を尖らせないで「う」// |
-| ^              |   7 | [i]                    | lower case i                            | // |
-| ^              |   8 | [u]                    | lower case u                            | // |
-| ^              |   9 | [ə]                    | turned e, schwa                         | 口の力を抜いて半開きにして、かろうじて声を出すくらいで「あ」。<br>クリリンが「あ…あ……」とか言ってるシーンのイメージ？<br>アクセントがないときに現れる母音。No.9とNo.10は同じ音として扱うこともある。<br>aroma /ərˈoʊmə/, banana /bənˈænə/, pajamas /pəʤˈɑməz/ | Take it easy. /tˈeɪk ət ˈiːzi/<br>It's not that difficult. /əts nɑt ðæt dˈifəkəɭt/<br>You can take your time. /jə kən tˈeɪk jə tˈaɪm/ |
-| ^              |  10 | [ɚ]                    | hooked schwa (/ʃwάː/ シュワー)          | schwa  |
+| ^              |   7 | [i]                    | lower case i                            | 口を横に引いて日本語の「い」。 |
+| ^              |   8 | [u]                    | lower case u                            | 口をとがらせて「う」。 |
+| ^              |   9 | [ə]                    | schwa, turned e                         | 口の力を抜いて半開きにして、かろうじて声を出すくらいで「あ」。<br>クリリンが「あ…あ……」とか言ってるシーンのイメージ？<br>アクセントがないときに現れる母音。No.9とNo.10は同じ音として扱うこともある。<br>aroma /ərˈoʊmə/, banana /bənˈænə/, pajamas /pəʤˈɑməz/ | Take it easy. /tˈeɪk ət ˈiːzi/<br>It's not that difficult. /əts nɑt ðæt dˈifəkəɭt/<br>You can take your time. /jə kən tˈeɪk jə tˈaɪm/ |
+| ^              |  10 | [ɚ]                    | hooked schwa (/ʃwάː/ シュワー)          | とにかく舌を引き、舌先を口蓋に当てずに/ə/。<br>/ər/と表現する辞書も多いらしい。<br>日本語では絶対に出てこない音。 |
 | 長母音         |  11 | [iː]                   | lower case i length mark                | 口を横に引いて日本語の「い」。結果的に「いぃ」みたいな感じになる。 |
 | ^              |  12 | [ɑːr]                  | script a length mark lower case r       | // |
-| ^              |  13 | [ɑː]                   | script a length mark                    | 口の形を「あ」にして「お」と発音すると出る音。<br>// |
-| ^              |  14 | [uː]                   | lower case u length mark                | 口をとがらせて「う」。結果的に「うぅ」みたいな感じになる。// |
-| ^              |  15 | [ɔː]                   | open o length mark                      | // |
+| ^              |  13 | [ɑː]                   | script a length mark                    | 口の形を「あ」にして「お」と発音すると出る音。<br>アメリカ英語では、/ɑ/で発音していた音が/ɑː/になりつつあるらしい。 |
+| ^              |  14 | [uː]                   | lower case u length mark                | 口をとがらせて「う」。結果的に「うぅ」みたいな感じになる。 |
+| ^              |  15 | [ɔː]                   | open o length mark                      | 日本語の「お」をいう時の緊張感を保ったまま口を縦に開き「お」。 |
 | ^              |  16 | [ɔːr]                  | open o length mark lower case r         | // |
 | ^              |  17 | [ɝː]                   | right hook reversed epsilon length mark | // |
-| 二重母音       |  18 | [eɪ]                   | lower case e small capital I            | 日本語で「えい」。// |
-| ^              |  19 | [aɪ]                   | lower case a small capital I            | 日本語で「あい」。// |
-| ^              |  20 | [ɔɪ]                   | open o small capital I                  | // |
+| 二重母音       |  18 | [eɪ]                   | lower case e small capital I            | 日本語で「えい」。 |
+| ^              |  19 | [aɪ]                   | lower case a small capital I            | 日本語で「あい」。 |
+| ^              |  20 | [ɔɪ]                   | open o small capital I                  | 日本語で「おい」。 |
 | ^              |  21 | [ɪɚ]                   | small capital I hooked schwa            | // |
 | ^              |  22 | [eɚ]                   | lower case e hooked schwa               | // |
 | ^              |  23 | [ʊɚ]                   | upsilon hooked schwa |
 | ^              |  24 | [aʊ]                   | lower case a upsilon                    | 日本語で「あう」。
 | ^              |  25 | [oʊ\|əʊ]               | lower case upsilon \| turned e upsilon  | 日本語で「おう」。「う」もきっちり発音すること。 |
-| 破裂音         |  26 | [p]<br>[b]             | lower case p<br>lower case b |
+| 破裂音         |  26 | [p]<br>[b]             | lower case p<br>lower case b | 「ぷっ」と「ぶっ」。/p/は声を出さず、/b/は声を出す。 |
 | ^              |  27 | [t]<br>[d]<br>[t&#x032c;]<br>[d&#x032c;] | lower case t<br>lower case d<br> lower case t with subscript wedge (?)<br>lower case d with subscript wedge (?) |
 | ^              |  28 | [k]<br>[g]             | lower case k<br>lower case g |
 | 摩擦音         |  29 | [f]<br>[v]             | lower case f<br>lower case v |
@@ -275,6 +275,13 @@ This is the bomb! 最高にうまい！ /ðɪs ɪz ðə bɑm/
 | u | ʌ | juː |
 | e | e | iː |
 | o | ɑ | oʊ |
+
+rは舌を置くに引いて、舌先は天井に近づくだけでどこにも触れない。
+音節における母音と子音の役割の差。
+母音で音節を区切る。子音は長母音にならない。
+
+破裂音とは、空気を一度口の中に閉じ込めて、それを解放した時に出る音のこと。
+この時、頬に空気をためたりせず、口の中からではなくハイカラ空気を出す。
 
 ### 英語の母音発声時の舌の位置
 
@@ -318,3 +325,4 @@ This is the bomb! 最高にうまい！ /ðɪs ɪz ðə bɑm/
 1. 河内山 真理, 有本 純, 日本における発音記号の扱いに関する問題 : 辞典と教科書, 関西国際大学 メディアライブラリー, 2022/03, <https://kuins.repo.nii.ac.jp/record/1087/files/K15-9%20KOCHIYAMA.pdf>
 1. Kwamikagami / TLJ7863 / Drmccreedy / Streapadair / R'n'B / Duck Gang II / Spitzak / Arjayay / , Unicode subscripts and superscripts, Wikipedia, 2023/08/08, <https://en.wikipedia.org/wiki/Unicode_subscripts_and_superscripts>
 1. 旺文社, 発音記号の読み方と覚え方, 英語の友, 2019/05/17, <https://eigonotomo.com/4skills/hatsuon>
+1. らうんど, /æ/ の発音, 英語で悩むあなたのために, -, <https://roundsquaretriangle.web.fc2.com/new/02_05.html#:~:text=%2Fɒ%2F%20の音は、,この音になります。>
