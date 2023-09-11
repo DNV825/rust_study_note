@@ -316,6 +316,9 @@ rは舌を置くに引いて、舌先は天井に近づくだけでどこにも�
 | ④  | 硬口蓋（こうこうがい）   |
 | ⑤  | 軟口蓋（なんこうがい）   |
 
+<https://ameblo.jp/sharockyosaiketaka/entry-12725847495.html>
+<http://francais.la.coocan.jp/j_onseik4.html> IPAの母音図は正確に日本の音を表現しているわけではない？
+
 ### 英語の母音発声時の舌の位置
 
 図1は[東京外語大の提供する母音図](http://www.coelang.tufs.ac.jp/ipa/vowel.php)を参考に描いた母音図で、記号が対にになっているところは右側のものが円唇母音を表す。円唇母音とは、唇を円形にすぼめて発音する音のこと。
