@@ -97,7 +97,7 @@ Rustのプロジェクト（パッケージ）は以下の構成をとる。
 
 | No | 用語 | 意味 |
 | --- | --- | --- |
-| (1) | パッケージ | クレートのビルド・テスト・共有を可能にするためのCargoの単位のこと。 |
+| (1) | パッケージ | クレートのビルド・テスト・共有を可能にするためのCargoの単位のこと。最大で1つのライブラリクレートと複数のバイナリクレートを持つことができる。 |
 | (2) | Cargo.toml | パッケージのメタデータや、パッケージをビルドするために必要な外部クレートへの依存関係を記述する。 パッケージのマニフェストと呼ばれる。 |
 | (3) | クレート | パッケージに1つのまとまりの機能を提供する単位で、ルートモジュールをトップとしたモジュールのツリーのこと。 ルートモジュールが`main.rs`であれば実行バイナリ、それ以外の場合はライブラリを構成する。 |
 | (4) | モジュール | クレート内でプログラムを構造化したもの。構造体や関数などのスコープや可視性を制御する。 |
@@ -1276,7 +1276,7 @@ Cargo.tomlの説明資料は以下の通り。
 
 #### モジュールの公開とインポート
 
-以下のフォルダ構成でモジュールを定義したと考える（`フォルダ名/mod.rs`で`フォルダ名`がモジュールとなる）。そして、`const_sample.rs`はモジュール内に定義したモジュールである。
+以下のフォルダ構成でモジュールを定義したと考えてみる。バイナリクレート`rust_grammer_sample`を作成するプロジェクトで、モジュール`module_sample`を定義している。`const_sample.rs`は`module_sample`の内部で定義したサブモジュールである。
 
 ```shell
 rust_grammer_sample
@@ -1284,10 +1284,10 @@ rust_grammer_sample
 │
 └─src
     │  main.rs
+    │  module_sample.rs
     │
-    └─module1
+    └─module_sample
             const_sample.rs
-            mod.rs
 ```
 
 `const_sample.rs`は内部でサブモジュールを作り、そこでグローバル変数を定義している。サブモジュールとグローバル変数の両方にキーワード`pub`を付与しなければモジュールの外部へ公開されない。
@@ -1303,32 +1303,139 @@ pub mod sub_module2 {
 }
 ```
 
-次は`mod.rs`である。最初の`pub mod const_sample`で`const_sample`モジュールをインポートし、外部へ公開している。また、2行目の`pub use`文では`sub_module2`だけを公開してもいる。
+次は`module1.rs`である。最初の`pub mod const_sample`で`const_sample`モジュールを外部へ公開している。また、2行目の`pub use`文では`sub_module2`だけを公開してもいる。
 
 ```rust
-// mod.rs
+// module_sample.rs
 pub mod const_sample;
 pub use const_sample::sub_module2;
 ```
 
-そして、`main.rs`でも`mod`文を実行して`module1`をインポートする。モジュール内のモジュール、グローバル変数には以下のようにアクセスできる。面白いのは4行目の`use module1::sub_module2`で、これは`module1.rs`で`sub_module2`だけを公開したことで、`module1`直下でインポートできるようにななったのでこのような記述が可能になったのだ。
+そして、`main.rs`で`mod`文を実行し、モジュール`module_sample`を有効化する。`use`文を用いて、モジュール内のモジュール、グローバル変数等をインポートできる。
 
 ```rust
 // main.rs
-mod module1;
-use module1::const_sample::sub_module1;
-use module1::sub_module2;
+mod module_sample;
+use module_sample::const_sample::sub_module1;
+use module_sample::sub_module2;
 
 fn main() {
-    println!("{}", module1::const_sample::sub_module1::HELLO);  // mod module1; だけしか書いていなくてもこの記述は有効。
+    println!("{}", module_sample::const_sample::sub_module1::HELLO);  // mod module1; だけしか書いていなくてもこの記述は有効。
     println!("{}", sub_module1::HELLO);
     println!("{}", sub_module2::WORLD);
 }
 ```
 
-#### 構造体やトレイトのインポート
+面白いのは4行目の`use module_sample::sub_module2`で、途中に`::const_sample::`と書いていない。`module_sample.rs`の`pub use const_sample::sub_module2`で`sub_module2`を公開した結果、`module_sample`直下でインポートできるようになったのだ。
 
-自作の構造体やトレイトも、モジュールと同じく別ファイルに定義されている場合は`mod`文と`use`文でインポートしなければならない。
+#### 兄弟モジュールの可視性
+
+以下のフォルダ構成でモジュールを定義したと考えてみる。この時`module_sample1`と`module_sample2`は同じ階級である。モジュールは親子関係で表現するため、例えば`module_sample1.rs`で`mod module_sample2`と記述することはできない。`mod`文は親である`main.rs`に記述する。
+
+```shell
+rust_grammer_sample
+│  Cargo.toml
+│
+└─src
+    │  main.rs
+    │  module_sample1.rs
+    └─module_sample2.rs
+```
+
+`main.rs`の内容は以下の通り。モジュールを有効化した後に`as`文で別名にしている。インポートしたい要素を絶対パスで指定する場合は`use crate::xxx`、相対パスで指定する場合は`use self::xxx`と記述する。
+
+```rust
+// main.rs
+mod module_sample1;
+mod module_sample2;
+
+use crate::module_sample1 as M1; // インポートしたい要素を絶対パスで指定する場合。
+use self::module_sample2 as M2;  // インポートしたい要素を相対パスで指定する場合。
+
+fn main() {
+    M1::func1();
+    M2::func2();
+}
+```
+
+`module_sample1.rs`の中身は以下の通り。
+
+```rust
+// module_sample1.rs
+pub fn func1() {
+    println!("module_sample1/func1()");
+}
+```
+
+`module_sample2.rs`の中身は以下の通り。`super::`は相対パスの指定で、この場合は`lib.rs`を指し示している。親モジュール（この場合はルートモジュール）である`lib.rs`で`mod module_sample1`を実行しているため、このように記述できる。
+
+```rust
+// module_sample2.rs
+use super::module_sample1::func1; // インポートしたい要素を相対パスで指定している。use crate::xxxと書いてもよい。
+
+pub fn func2() {
+    func1();
+    println!("module_sample2/func2()");
+}
+```
+
+#### ワークスペース
+
+Rustのパッケージは最大で1つのライブラリクレートと複数のバイナリクレートを保持することができる。そのため、複数のライブラリを作成したい場合には複数のパッケージが必要となる。そのような場合に、複数のパッケージを管理する仕組みが「ワークスペース」である。
+
+ワークスペースは以下のようなフォルダ構成をとる。
+
+```shell
+workspace_sample
+│  Cargo.lock
+│  Cargo.toml
+│
+├─adder
+│  │  Cargo.toml
+│  │
+│  └─src
+│          lib.rs
+│
+├─sample
+│  │  Cargo.toml
+│  │
+│  └─src
+│          main.rs
+│
+└─subtructor
+    │  Cargo.toml
+    │
+    └─src
+            lib.rs
+```
+
+`workspace_sample/Cargo.toml`へ以下のように記述すると、`workspace_sample`配下がワークスペースとなる。
+
+```toml
+[workspace]
+members = ["sample", "adder", "subtructor"]
+default-members = ["sample"]
+exclude = []
+```
+
+バイナリクレートの`sample`で`adder`や`subtructor`を利用する場合、以下のように`sample/Cargo.toml`のdependenciesへパスを記述すればよい。
+
+```toml
+[package]
+name = "sample"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+adder = { path = "../adder" }
+subtructer = { path = "../subtructor" }
+```
+
+あとはワークスペースフォルダで`cargo run`を実行すると、membersのライブラリをビルドし、sampleを実行してくれる。
+
+個別のパッケージに対して処理を行いたければ`cargo build --package adder`のようにコマンドを入力すればよい。
 
 ### （TODO）クロージャ
 
@@ -1378,7 +1485,7 @@ fn main() {
 
 <https://zenn.dev/a24k/articles/20221113-wasmple-define-macros>
 
-ワークスペース
+<https://brain.cc.kogakuin.ac.jp/~kanamaru/lecture/MP/final/>
 
 ## 参考資料
 
@@ -1386,6 +1493,7 @@ fn main() {
 
 1. 中林 智之 / 井田 健太, 基礎から学ぶ組込みRust, 株式会社シーアンドアール研究所, 2021/04/30 初版発行, ISBN978-4-86354-337-9 C3055
 1. クジラ飛行机, 手を動かして考えればよくわかる 高効率言語Rust書き方・作り方, ソシム株式会社, 2022/02/08 初版第2刷発行, ISBN978-4-8026-1351-4 / <https://lib.rs/crates/rpn_calc_53tanuki>
+1. κeen, Rustのモジュールの使い方 2018 Edition版, κeenのHappy Hacκing Blog, 2018/12/08, <https://keens.github.io/blog/2018/12/08/rustnomoju_runotsukaikata_2018_editionhan/>
 
 ### Rust公式資料
 

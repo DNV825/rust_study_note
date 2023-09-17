@@ -44,7 +44,7 @@ unsafe {
 - cbindgen
   <https://github.com/eqrion/cbindgen>
 
-[cbindgen](<<https://github.com/eqrion/cbindgen>)とは、Rustで作成したライブラリをC/C++で使うためのヘッダーファイルを生成するアプリである。
+[cbindgen](<https://github.com/eqrion/cbindgen>)とは、Rustで作成したライブラリをC/C++で使うためのヘッダーファイルを生成するアプリである。
 
 よく似た名前のツールに「[bindgen](https://github.com/rust-lang/rust-bindgen)」があるが、こちらのアプリの機能は逆で、C/C++で作成したライブラリをRustで使うためのインターフェースを生成する。
 
@@ -70,6 +70,7 @@ edition = "2021"
 [lib]
 name = "rust_embedded"
 crate-type = ["staticlib"] # ["staticlib"]で静的ライブラリ、["cdylb"]で動的ライブラリとなる。
+path = "lib.rs"
 ```
 
 `lib.rs`は以下のように記述する。
