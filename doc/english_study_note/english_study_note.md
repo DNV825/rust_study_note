@@ -316,6 +316,7 @@ rは舌を置くに引いて、舌先は天井に近づくだけでどこにも�
 | ④  | 硬口蓋（こうこうがい）   |
 | ⑤  | 軟口蓋（なんこうがい）   |
 
+<https://ja.wikibooks.org/wiki/%E6%97%A5%E6%9C%AC%E8%AA%9E/%E9%9D%9E%E6%AF%8D%E8%AA%9E%E8%A9%B1%E8%80%85%E3%82%80%E3%81%91/%E4%BA%94%E5%8D%81%E9%9F%B3%E5%9B%B3>
 <https://ameblo.jp/sharockyosaiketaka/entry-12725847495.html>
 <http://francais.la.coocan.jp/j_onseik4.html> IPAの母音図は正確に日本の音を表現しているわけではない？
 
