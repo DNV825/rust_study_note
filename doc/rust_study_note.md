@@ -1486,6 +1486,7 @@ fn main() {
 <https://zenn.dev/a24k/articles/20221113-wasmple-define-macros>
 
 <https://monozukuri-c.com/mbase-hardcontrol/>
+<https://uquest.tktk.co.jp/embedded/learning/lecture11.html>
 <https://uquest.tktk.co.jp/embedded/learning/lecture16.html>
 <https://brain.cc.kogakuin.ac.jp/~kanamaru/lecture/MP/final/>
 <https://brain.cc.kogakuin.ac.jp/~kanamaru/lecture/MP/final/part06/node8.html>
@@ -1512,6 +1513,15 @@ fn main() {
 > 静的領域：グローバル変数などの静的変数が置かれる。
 > ヒープ領域：メモリの動的管理 (C 言語の malloc 関数や C++ の new 演算子でメモリを確保すること) で用いられる。
 > スタック領域：今回の演習で扱ったように CPU のレジスタを一時的に退避させたり、また C 言語の自動変数 (多くのローカル変数) が置かれる。
+
+BSS: Block Starting Symbol
+
+<https://jhalfmoon.com/dbc/2019/10/11/ぐだぐだ低レベルプログラミング12-オブジェクト/>
+
+.text: プログラム本体、機械語命令コードを収める領域。
+.data: 初期値が与えられた変数などを収める領域。
+.bss: 初期値のない変数などを収める領域。
+.rodata: 定数を収める領域。
 
 ## 参考資料
 
