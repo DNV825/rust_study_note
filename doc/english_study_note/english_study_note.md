@@ -212,11 +212,11 @@ r音化の表現にはいくつかのパターンがある。1つは/r/で表現
 | 音の分類       | No  | 記号（IPA Character）  | 記号の名前（IPA Name）                  | 説明   | フレーズ |
 | ---            | --- | ---                    | ---                                     | ---    | ---      |
 | 短母音         |   1 | [ɪ]                    | small capital I                         | 口を横に引かずに「い」。唇は自然な感じで、イというイメージ。「ぃや～今日も頑張った～」の「ぃ」。<br>it /ɪt/, pick /pɪk/ |
-| ^              |   2 | [e]                    | lower case e                            | 日本語の「え」よりもちょっと縦に大きく口を開けて「え」。// |
+| ^              |   2 | [e]                    | lower case e                            | 日本語の「え」よりもちょっと縦に大きく口を開けて「え」。 |
 | ^              |   3 | [æ]                    | ash (/ˈæʃ/ アッシュ)                    | 口を横に引いた「え」。日本語だと「あ」に置き換えられがちだが、実際の発音は全然違う。<br>cat /kæt/, apple /æpəɭ/, cap /kæp/, bad /bæd/, man /mæn/, half /hæf/ | I'm so happy! /əm sˈoʊ hˈæpi/<br>I love to dance. /ə lˈʌv tə dˈæns/<br>That's fantastic! /ðˈæts fæntˈæstiɪk/<br>The cat took a nap. /ðə kæt eɪ næp/ |
 | ^              |   4 | [ɒ]                    | turned script a                         | （イギリス英語のみに登場するので省略）。 |
 | ^              |   5 | [ʌ]                    | turned v                                | こもりぎみの「あ」。日本語の「あ」と比べると半開き。口は緩く、舌は引き気味に。<br>green onion /griːn ʌnjən/, umbrella /ʌmbrˈelə/, cup /kʌp/ | Tough lack. /tʌf lʌk/<br>You are jumping the gun. /jʊ ər ʤˈʌmpɪŋ ðə gʌn/<br>I'm feeling under the weather. /əm fiːɭiŋ ʌndər ðə wˈeðər/ |
-| ^              |   6 | [ʊ]                    | upsilon                                 | 口を尖らせないで「う」// |
+| ^              |   6 | [ʊ]                    | upsilon                                 | 口を尖らせないで「う」 |
 | ^              |   7 | [i]                    | lower case i                            | 口を横に引いて日本語の「い」。 |
 | ^              |   8 | [u]                    | lower case u                            | 口をとがらせて「う」。 |
 | ^              |   9 | [ə]                    | schwa, turned e                         | 口の力を抜いて半開きにして、かろうじて声を出すくらいで「あ」。<br>クリリンが「あ…あ……」とか言ってるシーンのイメージ？<br>アクセントがないときに現れる母音。No.9とNo.10は同じ音として扱うこともある。<br>aroma /ərˈoʊmə/, banana /bənˈænə/, pajamas /pəʤˈɑməz/ | Take it easy. /tˈeɪk ət ˈiːzi/<br>It's not that difficult. /əts nɑt ðæt dˈifəkəɭt/<br>You can take your time. /jə kən tˈeɪk jə tˈaɪm/ |
@@ -236,10 +236,10 @@ r音化の表現にはいくつかのパターンがある。1つは/r/で表現
 | ^              |  23 | [ʊɚ]                   | upsilon hooked schwa |
 | ^              |  24 | [aʊ]                   | lower case a upsilon                    | 日本語で「あう」。
 | ^              |  25 | [oʊ\|əʊ]               | lower case upsilon \| turned e upsilon  | 日本語で「おう」。「う」もきっちり発音すること。 |
-| 破裂音         |  26 | [p]<br>[b]             | lower case p<br>lower case b | 「ぷっ」と「ぶっ」。/p/は声を出さず、/b/は声を出す。 |
-| ^              |  27 | [t]<br>[d]<br>[t&#x032c;]<br>[d&#x032c;] | lower case t<br>lower case d<br> lower case t with subscript wedge (?)<br>lower case d with subscript wedge (?) |
-| ^              |  28 | [k]<br>[g]             | lower case k<br>lower case g |
-| 摩擦音         |  29 | [f]<br>[v]             | lower case f<br>lower case v |
+| 破裂音         |  26 | [p]<br>[b]             | lower case p<br>lower case b | 「ぷっ」と「ぶっ」。/p/は声を出さず、/b/は声を出す。<br>唇で空気を閉鎖する破裂音 |
+| ^              |  27 | [t]<br>[d]<br>[t&#x032c;]<br>[d&#x032c;] | lower case t<br>lower case d<br> lower case t with subscript wedge (?)<br>lower case d with subscript wedge (?) | 「たてぃとぅてと」の「た」の音。無声音なので声は出さない。<br>「だでぃどぅでど」の「だ」の音。有声破裂音。<br>舌と歯茎で空気を閉鎖する破裂音。 |
+| ^              |  28 | [k]<br>[g]             | lower case k<br>lower case g | 「くっ」と「ぐっ」。<br>無声破裂音<br>有声破裂音。<br>舌の付け根と口の中の天井で空気を閉鎖する破裂音。 |
+| 摩擦音         |  29 | [f]<br>[v]             | lower case f<br>lower case v | 声を出さない「ふー」と声を出す「う゛ー」。<br>[f]は無声摩擦音で[v]は有声破裂音。<br>上の前歯と下唇で空気を閉鎖する摩擦音。完全密封するわけではない。 |
 | ^              |  30 | [ɵ]<br>[ð]             | theta<br>eth (/ɛð/ エズ) | ðは交差棒つきの古代文字のdが元ネタ。
 | ^              |  31 | [s]<br>[z]             | lower case s<br>lower case z |
 | ^              |  32 | [ʃ]<br>[ʒ]             | esh (/ˈɛʃ/ エッシュ)<br>ezh (/ˈɛʒ/ エッジュ) | ʃはイタリック体の長いs。<br>、ʒはゴシック体のzで、tailed zとも呼ぶ。 |
@@ -276,34 +276,47 @@ This is the bomb! 最高にうまい！ /ðɪs ɪz ðə bɑm/
 | e | e | iː |
 | o | ɑ | oʊ |
 
-rは舌を置くに引いて、舌先は天井に近づくだけでどこにも触れない。
+rは舌を奥に引いて、舌先は天井に近づくだけでどこにも触れない。
 音節における母音と子音の役割の差。
-母音で音節を区切る。子音は長母音にならない。
+→母音で音節を区切る。子音は長母音にならない。
 
-破裂音とは、空気を一度口の中に閉じ込めて、それを解放した時に出る音のこと。
-この時、頬に空気をためたりせず、口の中からではなくハイカラ空気を出す。
-
-破裂音
-摩擦音
-破擦音
-鼻音
-側面音・接近音
+- 破裂音
+  空気を一度口の中に閉じ込めて、それを解放した時に出る音のこと。この時、頬に空気をためたりせず、口の中からではなく肺から空気を出す。
+- 摩擦音
+  空気を一度口の中に閉じ込めて、狭い隙間から空気を出して発声する擦れるような音のこと。[f]と[v]は前歯と下唇で空気を閉じ込める。
+- 破擦音
+- 鼻音
+- 側面音・接近音
 
 調音様式：どのように音を作るか
 調音位置：どこで音を作るか
 有声音か無声音か：声帯に振動があるか
 
-|   - | 調音様式   | 調音位置         | 有声音/無声音 |
-| --- | ---        | ---              | ---           |
-| [ʧ] | 破擦音     | 後部歯茎音       | 無声音        |
-| [ʤ] | ^          | ^                | 有声音        |
-| [m] | 鼻音       | 両唇音           | 有声音        |
-| [n] | ^          | 歯茎音           | 有声音        |
-| [ŋ] | ^          | 軟口蓋音         | 有声音        |
-| [l] | 側（面）音 | 歯茎音           | 有声音        |
-| [r] | 接近音     | 後部歯茎音       | 有声音        |
-| [w] | ^          | （両）唇軟口蓋音 | 有声音        |
-| [j] | ^          | 硬口蓋音         | 有声音        |
+| 記号 | 調音様式   | 調音位置         | 有声音/無声音 |
+| ---  | ---        | ---              | ---           |
+| [p]  | 破裂音     | 両唇音           | 無声音        |
+| [b]  | ^          | ^                | 有声音        |
+| [t]  | ^          | 歯茎音           | 無声音        |
+| [d]  | ^          | ^                | 有声音        |
+| [k]  | ^          | 軟口蓋音         | 無声音        |
+| [g]  | ^          | ^                | 有声音        |
+| [f]  | 摩擦音     | 唇歯音           | 無声音        |
+| [v]  | ^          | ^                | 有声音        |
+| [ɵ]  | ^          |
+| [ð]  | ^          |
+| [s]  | ^          |
+| [z]  | ^          |
+| [ʃ]  | ^          |
+| [ʒ]  | ^          |
+| [ʧ]  | 破擦音     | 後部歯茎音       | 無声音        |
+| [ʤ]  | ^          | ^                | 有声音        |
+| [m]  | 鼻音       | 両唇音           | 有声音        |
+| [n]  | ^          | 歯茎音           | 有声音        |
+| [ŋ]  | ^          | 軟口蓋音         | 有声音        |
+| [l]  | 側（面）音 | 歯茎音           | 有声音        |
+| [r]  | 接近音     | 後部歯茎音       | 有声音        |
+| [w]  | ^          | （両）唇軟口蓋音 | 有声音        |
+| [j]  | ^          | 硬口蓋音         | 有声音        |
 
 [![./img/consonant_adjustment_position.png](./img/consonant_adjustment_position.png)](./img/consonant_adjustment_position.png)
 図x -- 子音の調整位置 consonant_adjustment_position
@@ -315,6 +328,7 @@ rは舌を置くに引いて、舌先は天井に近づくだけでどこにも�
 | ③  | 後部歯茎（こうぶしけい） |
 | ④  | 硬口蓋（こうこうがい）   |
 | ⑤  | 軟口蓋（なんこうがい）   |
+| ⑥  | 唇歯（しんし）           |
 
 <https://ja.wikibooks.org/wiki/%E6%97%A5%E6%9C%AC%E8%AA%9E/%E9%9D%9E%E6%AF%8D%E8%AA%9E%E8%A9%B1%E8%80%85%E3%82%80%E3%81%91/%E4%BA%94%E5%8D%81%E9%9F%B3%E5%9B%B3>
 <https://ameblo.jp/sharockyosaiketaka/entry-12725847495.html>
