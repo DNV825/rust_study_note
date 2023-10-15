@@ -103,6 +103,11 @@ How much did it cost / to send the parcel? ← 区切ったバージョン。
 音読1回ごとに1単語言えるものを増やすイメージ。
 音声の速さについていけない場合、まずはゆっくり読めばよい。
 
+Windows 11 で音声認識を行うには、「設定 - 時刻と言語 - 言語と地域」から言語をインストールし、「設定 - 時刻と言語 - 音声認識」で「英語（米国）」を選ぶ。
+そして、「Windows キー + h」を押下すると音声入力ツールが起動する。この状態で「Windows キー + Space キー」で入力言語を英語にすると、英語を認識して文字を音声入力することができる。
+
+キーボードの「Windows キー + Ctrl + s」を押下すると、音声認識アプリが起動するが、これはWindowsを操作するアプリなのでちょっと違う。
+
 ## 英語の発音記号（Phonetic Symbols）
 
 ディクテーションをやってみたところ、ぜんぜん音を聞き取れなかった。読み上げが早いし、まったくついていけない。
@@ -222,60 +227,72 @@ r音化の表現にはいくつかのパターンがある。1つは/r/で表現
 | ^              |   9 | [ə]                    | schwa, turned e                         | 口の力を抜いて半開きにして、かろうじて声を出すくらいで「あ」。<br>クリリンが「あ…あ……」とか言ってるシーンのイメージ？<br>アクセントがないときに現れる母音。No.9とNo.10は同じ音として扱うこともある。<br>aroma /ərˈoʊmə/, banana /bənˈænə/, pajamas /pəʤˈɑməz/ | Take it easy. /tˈeɪk ət ˈiːzi/<br>It's not that difficult. /əts nɑt ðæt dˈifəkəɭt/<br>You can take your time. /jə kən tˈeɪk jə tˈaɪm/ |
 | ^              |  10 | [ɚ]                    | hooked schwa (/ʃwάː/ シュワー)          | とにかく舌を引き、舌先を口蓋に当てずに/ə/。<br>/ər/と表現する辞書も多いらしい。<br>日本語では絶対に出てこない音。 |
 | 長母音         |  11 | [iː]                   | lower case i length mark                | 口を横に引いて日本語の「い」。結果的に「いぃ」みたいな感じになる。 |
-| ^              |  12 | [ɑːr]                  | script a length mark lower case r       | // |
+| ^              |  12 | [ɑːr]                  | script a length mark lower case r       | r音化した[ɑː]。口を開くこと。 |
 | ^              |  13 | [ɑː]                   | script a length mark                    | 口の形を「あ」にして「お」と発音すると出る音。<br>アメリカ英語では、/ɑ/で発音していた音が/ɑː/になりつつあるらしい。 |
 | ^              |  14 | [uː]                   | lower case u length mark                | 口をとがらせて「う」。結果的に「うぅ」みたいな感じになる。 |
 | ^              |  15 | [ɔː]                   | open o length mark                      | 日本語の「お」をいう時の緊張感を保ったまま口を縦に開き「お」。 |
 | ^              |  16 | [ɔːr]                  | open o length mark lower case r         | // |
-| ^              |  17 | [ɝː]                   | right hook reversed epsilon length mark | // |
-| 二重母音       |  18 | [eɪ]                   | lower case e small capital I            | 日本語で「えい」。 |
+| ^              |  17 | [ɝː]                   | right hook reversed epsilon length mark | 長めの/ə/。 |
+| 二重母音        |  18 | [eɪ]                   | lower case e small capital I            | 日本語で「えい」。 |
 | ^              |  19 | [aɪ]                   | lower case a small capital I            | 日本語で「あい」。 |
 | ^              |  20 | [ɔɪ]                   | open o small capital I                  | 日本語で「おい」。 |
 | ^              |  21 | [ɪɚ]                   | small capital I hooked schwa            | // |
 | ^              |  22 | [eɚ]                   | lower case e hooked schwa               | // |
-| ^              |  23 | [ʊɚ]                   | upsilon hooked schwa |
+| ^              |  23 | [ʊɚ]                   | upsilon hooked schwa | // |
 | ^              |  24 | [aʊ]                   | lower case a upsilon                    | 日本語で「あう」。
 | ^              |  25 | [oʊ\|əʊ]               | lower case upsilon \| turned e upsilon  | 日本語で「おう」。「う」もきっちり発音すること。 |
-| 破裂音         |  26 | [p]<br>[b]             | lower case p<br>lower case b | 「ぷっ」と「ぶっ」。/p/は声を出さず、/b/は声を出す。<br>唇で空気を閉鎖する破裂音 |
+| 破裂音          |  26 | [p]<br>[b]             | lower case p<br>lower case b | 「ぷっ」と「ぶっ」。/p/は声を出さず、/b/は声を出す。<br>唇で空気を閉鎖する破裂音 |
 | ^              |  27 | [t]<br>[d]<br>[t&#x032c;]<br>[d&#x032c;] | lower case t<br>lower case d<br> lower case t with subscript wedge (?)<br>lower case d with subscript wedge (?) | 「たてぃとぅてと」の「た」の音。無声音なので声は出さない。<br>「だでぃどぅでど」の「だ」の音。有声破裂音。<br>舌と歯茎で空気を閉鎖する破裂音。 |
 | ^              |  28 | [k]<br>[g]             | lower case k<br>lower case g | 「くっ」と「ぐっ」。<br>無声破裂音<br>有声破裂音。<br>舌の付け根と口の中の天井で空気を閉鎖する破裂音。 |
 | 摩擦音         |  29 | [f]<br>[v]             | lower case f<br>lower case v | 声を出さない「ふー」と声を出す「う゛ー」。<br>[f]は無声摩擦音で[v]は有声破裂音。<br>上の前歯と下唇で空気を閉鎖する摩擦音。完全密封するわけではない。 |
-| ^              |  30 | [ɵ]<br>[ð]             | theta<br>eth (/ɛð/ エズ) | ðは交差棒つきの古代文字のdが元ネタ。
-| ^              |  31 | [s]<br>[z]             | lower case s<br>lower case z |
-| ^              |  32 | [ʃ]<br>[ʒ]             | esh (/ˈɛʃ/ エッシュ)<br>ezh (/ˈɛʒ/ エッジュ) | ʃはイタリック体の長いs。<br>、ʒはゴシック体のzで、tailed zとも呼ぶ。 |
-| ^              |  33 | [h]                    | lower case h |
-| 破擦音         |  34 | [ʧ]                    | t-esh ligature | ligatureとは合字のこと。
-| ^              |  35 | [ʤ]                    | d-ezh ligature |
-| 鼻音           |  36 | [m]                    | lower case m |
-| ^              |  37 | [n]                    | lower case n |
-| ^              |  38 | [ŋ]                    | eng (/ˈɛŋ/ エング) | ŋはnに尻尾をつけたもので、tailed nとも呼ぶ。 |
-| 側面音・接近音 |  39 | [l]                    | lower case l |
-| ^              |  40 | [r]                    | lower case r |
-| ^              |  41 | [w]                    | lower case w |
-| ^              |  42 | [j]                    | jod (/ˈjod/ ヨッド), またはyod | ヨッド。ヘブライ語の文字が元ネタ。子音のyの音。lower case j でもよい。
+| ^              |  30 | [θ]<br>[ð]             | theta<br>eth (/ɛð/ エズ) | ðは交差棒つきの古代文字のdが元ネタ。<br>名詞なら[θ] すー、動詞なら[ð] ずーと発音することが多い。<br>前歯と舌の隙間で空気を摩擦させる。<br>舌は噛まずに上の前歯に当てるだけ。空気を震わせる。 |
+| ^              |  31 | [s]<br>[z]             | lower case s<br>lower case z | 「さすぃすせそ」の「さ」の音。無声音なので声は出さない。<br>「ざずぃずぜぞ」の「ざ」の音。有声摩擦音。<br>上下の歯と舌をこする感じ？<br>語尾のsの直前の音が無声音であれば[s]、有声音であれば[z]の音になる。 |
+| ^              |  32 | [ʃ]<br>[ʒ]             | esh (/ˈɛʃ/ エッシュ)<br>ezh (/ˈɛʒ/ エッジュ) | ʃはイタリック体の長いs。<br>、ʒはゴシック体のzで、tailed zとも呼ぶ。<br>「しゃししゅしぇしょ」の「し」と「じゃじじゅじぇじょ」の「じ」<br>唇と舌は少し緊張させる。 |
+| ^              |  33 | [h]                    | lower case h | 無声音。喉の奥で作られる摩擦音。<br>は行の「はへほ」はこれ。「ひ /ç/」と「ふ /ɸ/」は英語には存在しないので、口の奥で摩擦を作ろう。 |
+| 破擦音         |  34 | [ʧ]                    | t-esh ligature | ligatureとは合字のこと。「ちゃちちゅちぇちょ」の「ち」の音。 <br>破裂が起こって「ちっ」のように「っ」があるように聞こえる。|
+| ^              |  35 | [ʤ]                    | d-ezh ligature | 「ぢゃぢぢゅぢぇぢょ」の「ぢ」の音。<br>破裂が起こって「ぢっ」のように「っ」があるように聞こえる。|
+| 鼻音           |  36 | [m]                    | lower case m | 唇を閉じて「ん」。「ん～ま」。 |
+| ^              |  37 | [n]                    | lower case n | 上の歯の根元と舌で閉じて「ん」。「ん～な」 |
+| ^              |  38 | [ŋ]                    | eng (/ˈɛŋ/ エング) | ŋはnに尻尾をつけたもので、tailed nとも呼ぶ。<br>口を開けて口の奥で舌を閉じて「ん」。<br>gとkの前限定の「ん」。 |
+| 側面音・接近音 |  39 | [l]                    | lower case l | 舌先の「る」。舌先を歯の根元の歯茎につける。<br>後ろに母音が続かない l、例えば girl /gˈərl/ の l のような末尾のlは舌の根元から舌をそのまま引く。<br>「らりるれろ」に似ている。 |
+| ^              |  40 | [r]                    | lower case r | 引き舌の「る」。舌を引いてどこにもつけない…のだが、舌の根元の側面は上の口蓋に接触するらしい。<br>唇を「う～」とすぼめて「ぅら ぅり ぅる ぅれ ぅろ」というイメージ。 |
+| ^              |  41 | [w]                    | lower case w | 口を丸めた「わ」をわずかに開く動きの音。「ぅわ」の音。 |
+| ^              |  42 | [j]                    | jod (/ˈjod/ ヨッド), またはyod | 力強い舌と天井が狭い「やゆよ」。<br>ヘブライ語の文字が元ネタ。子音のyの音。lower case j でもよい。 |
 
-まずは4種類のa = /a/, /ə/, /æ/, /ʌ/を練習するのが良いらしい？ /ɑ/は口を大きく開けて「あ」。
-I got this! まかせとけ！ /aɪ gɑt ðɪs/
-That's not funny. 笑えねーよ /ðæts nɑt fʌni/
-This is the bomb! 最高にうまい！ /ðɪs ɪz ðə bɑm/
+I got this! まかせとけ！
+/aɪ gɑt ðɪs/
 
-- /ɑ/, /æ/, /ʌ/ の例文
-  <ruby>/ðˈeɚ/<rt>There</rt></ruby> <ruby>/ɪz/<rt>is</rt></ruby> <ruby>/ðə/<rt>the</rt></ruby> <ruby>/kɑp/<rt>cop</rt></ruby> <ruby>/wìð/<rt>with</rt></ruby> <ruby>/ðə/<rt>the</rt></ruby> <ruby>/kæp/<rt>cap</rt></ruby> <ruby>/ɔːn/<rt>on</rt></ruby> <ruby>/ðə/<rt>the</rt></ruby> <ruby>/kˈʌp/<rt>cup</rt></ruby>.
+That's not funny. 笑えねーよ
+/ðæts nɑt fʌni/
+
+This is the bomb! 最高にうまい！
+/ðɪs ɪz ðə bɑm/
+
+There is the cop with the cap on the cup.
+/ðˈeɚ ɪz ðə kɑp wìð ðə kæp ɔːn ðə kˈʌp/
+
+I'm going to sing!
+/aɪm gˈoʊɪŋ tə siŋ/
 
 <https://qr.ae/pyBsdN>
 <https://www.youtube.com/@SoundsAmerican>
 
-rは舌を奥に引いて、舌先は天井に近づくだけでどこにも触れない。
 音節における母音と子音の役割の差。
-→母音で音節を区切る。子音は長母音にならない。
+→ 母音で音節を区切る。子音は長母音にならない。
 
+
+- r音化
+  rは舌を奥に引いて、舌先は天井に近づくだけでどこにも触れない。
 - 破裂音
   空気を一度口の中に閉じ込めて、それを解放した時に出る音のこと。この時、頬に空気をためたりせず、口の中からではなく肺から空気を出す。
 - 摩擦音
   空気を一度口の中に閉じ込めて、狭い隙間から空気を出して発声する擦れるような音のこと。[f]と[v]は前歯と下唇で空気を閉じ込める。
 - 破擦音
+  破裂はするが、その空気は摩擦もする。
 - 鼻音
+  口を完全に閉じて鼻から声を出す音。鼻音はすべて有声音。
 - 側面音・接近音
+  舌の側面を口蓋につける音？
 
 調音様式：どのように音を作るか
 調音位置：どこで音を作るか

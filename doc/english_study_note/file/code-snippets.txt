@@ -95,9 +95,9 @@
 		"body": ["d̬"],
 		"description": "d with subscript wedge"
 	},
-	"Phonetic Symbols [ɵ]": {
+	"Phonetic Symbols [θ]": {
 		"prefix": "@theta",
-		"body": ["ɵ"],
+		"body": ["θ"],
 		"description": "theta"
 	},
 	"Phonetic Symbols [ð]": {
