@@ -105,7 +105,7 @@
   <!-- 発音記号 Open-mid（半広）,Central（中舌） -->
   <rect x="430" y="215" width="1.5em" height="1.5em" style="fill: #ffffff;" />
   <text x="435" y="230" style="font-size: 1.3em; font-weight: bold; fill: #ff0000;">ɜ</text>
-  <text x="455" y="245" style="font-size: 0.5em; font-weight: bold; fill: #ff0000; text-anchor: end;">口を丸めて</text>
+  <text x="455" y="245" style="font-size: 0.5em; font-weight: bold; fill: #ff0000; text-anchor: end;">口を丸めず</text>
   <text x="455" y="255" style="font-size: 0.5em; font-weight: bold; fill: #ff0000; text-anchor: end;">長めの/ə/</text>
   <rect x="480" y="215" width="1.5em" height="1.5em" style="fill: #ffffff;" />
   <text x="485" y="230" style="font-size: 1.3em; font-weight: bold; fill: #000000;">ɞ</text>
