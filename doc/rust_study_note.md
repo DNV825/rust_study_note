@@ -106,6 +106,22 @@ Rustのプロジェクト（パッケージ）は以下の構成をとる。
 
 ![./img/rust_basic.png](./img/rust_basic.png)
 
+### （TODO）dependenciesについて
+
+| 記述例 | 意味 | 補足説明 |
+| --- | --- | --- |
+| `1.2.3` / `^1.2.3` | 1.2.3 <= v < 2.0.0 | `0.1.0`の場合は 0.1.0 <= v < 0.2.0 となるっぽい。 |
+| `~1.2` | 1.2.0 <= v < 1.3.0 | - |
+| `1.*` | 1.0.0 <= v < 2.0.0 | - |
+| `=1.2.3` | 1.2.3 = v | - |
+| `>1.1` | 1.2.0 <= v | - |
+| `>=1.2,<1.5` | 1.2.0 <= v < 1.5.0 | - |
+
+- The Cargo Book - 3.14. Dependency Resolution
+  <https://doc.rust-lang.org/cargo/reference/resolver.html>
+- The Cargo Book - 3.1.1. Overriding Dependencies
+  <https://doc.rust-lang.org/cargo/reference/overriding-dependencies.html>
+
 ## Rustの文法
 
 文 = statement、式 = expressoin。式は値を返す。";"を末尾に付与すると文として扱われる。
@@ -255,6 +271,9 @@ fn main() {
   let mut m_array = [6, 7, 8, 9, 10];
   m_array[0] = 99;
   println!("m_array = {:?}", m_array);
+
+  let array = [0x01; 0x100];
+  println!("{:?}", array);
 }
 ```
 
