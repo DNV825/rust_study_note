@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>金のフレーズ</title>
+    <style type="text/css">
+        #answer_en {
+            width: 40em;
+        }
+
+        #result {
+            width: 40em;
+            field-sizing: content;
+        }
+
+        table tr th {
+            vertical-align: top;
+        }
+
+        table tr td {
+            vertical-align: top;
+        }
+    </style>
+    <script type="text/JavaScript">
+        // 問題と解答のオブジェクト。ロード時にこの配列を並べ替える。
+        const Q_NUM = 0;
+        const Q_JP = 1;
+        const Q_EN = 2;
+        const A_EN = 3;
+        let golden_phrases = {
+            lists: [
+                [1, "とにかくやってみよう", "Let's try a______.", "anyway"],
+                [2, "スピーチに続いて、夕食を取った。", "F______ the speech, we had dinner.", "following"],
+                [3, "地図を参照してください。", "Please r______ <u>to</u> the map.", "refer to"],
+                [4, "チケットはオンラインで入手可能です。", "Tickets are a______ online.", "available"],
+                [5, "営業部", "the sales d______", "department"],
+                [6, "大きな会議室", "a large c______ room.", "conference"],
+                [7, "メールによると", "a______ <u>to</u> the e-mail", "according to"],
+                [8, "女性はおそらく誰ですか。", "Who most l______ is the woman?", "likely"],
+                [9, "男性は何をすることを申し出ていますか。", "What does the man o______ <u>to</u> do?", "offer to"],
+                [10, "新しいオフィス機器", "new office e______", "equipment"],
+            ]
+        };
+
+        // 問題を表示する。
+        let current_q_num = 0; // 何問目かを格納するグローバル変数。
+        const setQuestion = () => {
+            if (current_q_num < golden_phrases.lists.length) {
+                document.getElementById("question_jp").innerHTML = golden_phrases.lists[current_q_num][Q_JP];
+                document.getElementById("question_en").innerHTML = golden_phrases.lists[current_q_num][Q_EN];
+            }
+        }
+
+        // ロード時の動作。golden_phrase.listsの順序をランダムに入れ替える。
+        window.addEventListener('load', () => {
+            for (let i = golden_phrases.lists.length - 1; i > 0; i--) {
+                const r = Math.floor(Math.random() * (i + 1));
+                const temp =  golden_phrases.lists[i];
+
+                golden_phrases.lists[i] = golden_phrases.lists[r];
+                golden_phrases.lists[r] = temp;
+            }
+            setQuestion();
+            document.getElementById("process").innerText = `OK: ${ok_count} NG: ${ng_count} ... ${current_q_num} / ${golden_phrases.lists.length}`;
+            document.getElementById("answer_en").focus();
+        });
+
+        // apply で答え合わせをし、残件と結果を更新する。
+        let ok_count = 0;
+        let ng_count = 0;
+        const apply = () => {
+            if (current_q_num < golden_phrases.lists.length) {
+                const current_result_text = document.getElementById("result").value;
+                const current_Q_NUM_text = (golden_phrases.lists[current_q_num][Q_NUM] >= 100) ? `${golden_phrases.lists[current_q_num][Q_NUM]}` : ((golden_phrases.lists[current_q_num][Q_NUM]) >= 10) ? `0${golden_phrases.lists[current_q_num][Q_NUM]}` : `00${golden_phrases.lists[current_q_num][Q_NUM]}`;
+                const current_answer_en_text = document.getElementById("answer_en").value;
+                const quiz_result_text = (current_answer_en_text == golden_phrases.lists[current_q_num][A_EN]) ? "OK" : "NG";
+
+                if (quiz_result_text == "OK") {
+                    document.getElementById("result").value = `[${current_Q_NUM_text}] ${quiz_result_text}\n${current_result_text}`;
+                    ok_count++;
+                }
+                else {
+                    document.getElementById("result").value = `[${current_Q_NUM_text}] ${quiz_result_text} ${golden_phrases.lists[current_q_num][Q_JP]} ${golden_phrases.lists[current_q_num][Q_EN]} ${golden_phrases.lists[current_q_num][A_EN]}\n${current_result_text}`;
+                    ng_count++
+                }
+                current_q_num++;
+                setQuestion();
+                document.getElementById("answer_en").value = "";
+                document.getElementById("process").innerText = `OK: ${ok_count} NG: ${ng_count} ... ${current_q_num} / ${golden_phrases.lists.length}`;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <form id="input_area" action="JavaScript: apply();">
+        <table>
+            <tr>
+                <th rowspan="2">問題</th>
+                <td id="question_jp">&nbsp;</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td id="question_en">&nbsp;</td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>回答</th>
+                <td><input type="text" id="answer_en"></td>
+                <td><input type="submit" value="回答する"></td>
+            </tr>
+            <tr>
+                <th rowspan="2">結果</th>
+                <td><textarea id="result"></textarea></td>
+                <td id="process"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>
