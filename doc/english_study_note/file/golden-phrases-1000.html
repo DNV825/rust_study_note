@@ -1,15 +1,25 @@
 <!DOCTYPE html>
+<meta charset="UTF-8">
 <html>
 
 <head>
     <title>金のフレーズ</title>
     <style type="text/css">
+        /* 参考：https://rilaks.jp/blog/text-inflation/ */
+        body {
+            text-size-adjust: 100%; /* スマホで文字が大きくなってしまうのを防ぐ対応。 */
+            -webkit-text-size-adjust: 100%; /* Safari */
+        }
         #answer_en {
-            width: 40em;
+            width: 80em;
+            max-width: 80em;
+            min-width: 30em;
         }
 
         #result {
-            width: 40em;
+            width: 80em;
+            max-width: 80em;
+            min-width: 30em;
             field-sizing: content;
         }
 
@@ -23,78 +33,169 @@
     </style>
     <script type="text/JavaScript">
         // 問題と解答のオブジェクト。ロード時にこの配列を並べ替える。
-        const Q_NUM = 0;
-        const Q_JP = 1;
-        const Q_EN = 2;
-        const A_EN = 3;
         let golden_phrases = {
-            lists: [
-                [1, "とにかくやってみよう", "Let's try a______.", "anyway"],
-                [2, "スピーチに続いて、夕食を取った。", "F______ the speech, we had dinner.", "following"],
-                [3, "地図を参照してください。", "Please r______ <u>to</u> the map.", "refer to"],
-                [4, "チケットはオンラインで入手可能です。", "Tickets are a______ online.", "available"],
-                [5, "営業部", "the sales d______", "department"],
-                [6, "大きな会議室", "a large c______ room.", "conference"],
-                [7, "メールによると", "a______ <u>to</u> the e-mail", "according to"],
-                [8, "女性はおそらく誰ですか。", "Who most l______ is the woman?", "likely"],
-                [9, "男性は何をすることを申し出ていますか。", "What does the man o______ <u>to</u> do?", "offer to"],
-                [10, "新しいオフィス機器", "new office e______", "equipment"],
+            lv600: [
+                {no: 1, q_jp: "とにかくやってみよう", q_en: "Let's try a______.", a_en: "anyway", pronounce: ""},
+                {no: 2, q_jp: "スピーチに続いて、夕食を取った。", q_en: "F______ the speech, we had dinner.", a_en: "following", pronounce: ""},
+                {no: 3, q_jp: "地図を参照してください。", q_en: "Please r______ <u>to</u> the map.", a_en: "refer to", pronounce: ""},
+                {no: 4, q_jp: "チケットはオンラインで入手可能です。", q_en: "Tickets are a______ online.", a_en: "available", pronounce: ""},
+                {no: 5, q_jp: "営業部", q_en: "the sales d______", a_en: "department", pronounce: ""},
+                {no: 6, q_jp: "大きな会議室", q_en: "a large c______ room.", a_en: "conference", pronounce: ""},
+                {no: 7, q_jp: "メールによると", q_en: "a______ <u>to</u> the e-mail", a_en: "according to", pronounce: ""},
+                {no: 8, q_jp: "女性はおそらく誰ですか。", q_en: "Who most l______ is the woman?", a_en: "likely", pronounce: ""},
+                {no: 9, q_jp: "男性は何をすることを申し出ていますか。", q_en: "What does the man o______ <u>to</u> do?", a_en: "offer to", pronounce: ""},
+                {no: 10, q_jp: "新しいオフィス機器", q_en: "new office e______", a_en: "equipment", pronounce: ""},
+            ],
+            lv730: [
+                {no: 0, q_jp: "ダミー", q_en: "dummy", a_en: "dummy", pronounce: "/dˈʌmi/"}
+            ],
+            lv860: [
+                {no: 0, q_jp: "ダミー", q_en: "dummy", a_en: "dummy", pronounce: "/dˈʌmi/"}
+            ],
+            lv990: [
+                {no: 0, q_jp: "ダミー", q_en: "dummy", a_en: "dummy", pronounce: "/dˈʌmi/"}
             ]
         };
 
         // 問題を表示する。
+        // ロード後、もしくはレベル選択時に実行する。
         let current_q_num = 0; // 何問目かを格納するグローバル変数。
         const setQuestion = () => {
-            if (current_q_num < golden_phrases.lists.length) {
-                document.getElementById("question_jp").innerHTML = golden_phrases.lists[current_q_num][Q_JP];
-                document.getElementById("question_en").innerHTML = golden_phrases.lists[current_q_num][Q_EN];
+            const list = target_list;
+            if (current_q_num < list.length) {
+                document.getElementById("question_jp").innerHTML = list[current_q_num].q_jp;
+                document.getElementById("question_en").innerHTML = list[current_q_num].q_en;
             }
         }
 
         // ロード時の動作。golden_phrase.listsの順序をランダムに入れ替える。
         window.addEventListener('load', () => {
-            for (let i = golden_phrases.lists.length - 1; i > 0; i--) {
-                const r = Math.floor(Math.random() * (i + 1));
-                const temp =  golden_phrases.lists[i];
+            // ロード時の動作。
+            setCategory();
 
-                golden_phrases.lists[i] = golden_phrases.lists[r];
-                golden_phrases.lists[r] = temp;
+            // イベントの登録。
+            // 結果をダウンロードするボタンのイベントを定義する。
+            // 参考：https://webfrontend.ninja/js-download-blob/
+            document.getElementById("dlbtn").addEventListener('click', () => {
+                // 結果を格納する Blob オブジェクトを生成
+                const result_count = document.getElementById("process").innerText;
+                const separater = "\n--------\n";
+                const result_text = document.getElementById("result").value;
+                const blob = new Blob([result_count, separater, result_text], { type: 'text/plain;charset=utf8' });
+
+                // ダミーの a 要素を生成して body 要素の最後に追加
+                let dummy_a_el = document.createElement('a');
+                document.body.appendChild(dummy_a_el);
+                
+                // a 要素の href 属性に Object URL をセット
+                dummy_a_el.href = window.URL.createObjectURL(blob);
+                
+                // a 要素の download 属性にファイル名をセット
+                // 参考：https://www.ey-office.com/blog_archive/2023/04/18/short-code-to-get-todays-date-in-yyyy-mm-dd-format-in-javascript/
+                const current_datetime = new Date().toLocaleDateString("ja-JP", {year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", second: "2-digit"}).replaceAll('/', '').replaceAll(':', '').replaceAll(' ','_');
+                const target_category_name = getCategory();
+                dummy_a_el.download = `${current_datetime}_${target_category_name}_OK-${ok_count}_NG-${ng_count}.log`;
+                
+                // 疑似的に a 要素をクリックさせる
+                dummy_a_el.click();
+                
+                // a 要素を body 要素から削除
+                document.body.removeChild(dummy_a_el);
+            });
+
+            // カテゴリーを選択するラジオボタン選択時のイベントを定義する。
+            for (const r of document.getElementsByName("category[]")) {
+                r.addEventListener('click', () => {
+                    setCategory(false); // 回答欄へフォーカスさせない。
+                });
             }
-            setQuestion();
-            document.getElementById("process").innerText = `OK: ${ok_count} NG: ${ng_count} ... ${current_q_num} / ${golden_phrases.lists.length}`;
-            document.getElementById("answer_en").focus();
         });
 
         // apply で答え合わせをし、残件と結果を更新する。
         let ok_count = 0;
         let ng_count = 0;
         const apply = () => {
-            if (current_q_num < golden_phrases.lists.length) {
+            const list = target_list;
+
+            if (current_q_num < list.length) {
                 const current_result_text = document.getElementById("result").value;
-                const current_Q_NUM_text = (golden_phrases.lists[current_q_num][Q_NUM] >= 100) ? `${golden_phrases.lists[current_q_num][Q_NUM]}` : ((golden_phrases.lists[current_q_num][Q_NUM]) >= 10) ? `0${golden_phrases.lists[current_q_num][Q_NUM]}` : `00${golden_phrases.lists[current_q_num][Q_NUM]}`;
+                const current_Q_NUM_text = (list[current_q_num].no >= 100) ? `${list[current_q_num].no}` : ((list[current_q_num].no) >= 10) ? `0${list[current_q_num].no}` : `00${list[current_q_num].no}`;
                 const current_answer_en_text = document.getElementById("answer_en").value;
-                const quiz_result_text = (current_answer_en_text == golden_phrases.lists[current_q_num][A_EN]) ? "OK" : "NG";
+                const quiz_result_text = (current_answer_en_text == list[current_q_num].a_en) ? "OK" : "NG";
 
                 if (quiz_result_text == "OK") {
-                    document.getElementById("result").value = `[${current_Q_NUM_text}] ${quiz_result_text}\n${current_result_text}`;
+                    document.getElementById("result").value = `[${current_Q_NUM_text}] ${quiz_result_text}  ${list[current_q_num].a_en} ${list[current_q_num].pronounce}\n${current_result_text}`;
                     ok_count++;
                 }
                 else {
-                    document.getElementById("result").value = `[${current_Q_NUM_text}] ${quiz_result_text} ${golden_phrases.lists[current_q_num][Q_JP]} ${golden_phrases.lists[current_q_num][Q_EN]} ${golden_phrases.lists[current_q_num][A_EN]}\n${current_result_text}`;
+                    document.getElementById("result").value = `[${current_Q_NUM_text}] ${quiz_result_text}  ${list[current_q_num].a_en} ${list[current_q_num].pronounce}  ${list[current_q_num].q_jp}  ${list[current_q_num].q_en}  (-_-;) < \"${current_answer_en_text}\"\n${current_result_text}`;
                     ng_count++
                 }
                 current_q_num++;
                 setQuestion();
                 document.getElementById("answer_en").value = "";
-                document.getElementById("process").innerText = `OK: ${ok_count} NG: ${ng_count} ... ${current_q_num} / ${golden_phrases.lists.length}`;
+                document.getElementById("process").innerText = `OK: ${ok_count} NG: ${ng_count} ... ${current_q_num} / ${list.length}`;
+            }
+
+            // 全問実施した場合、クリアした旨を表示する。
+            if (current_q_num >= list.length) {
+                document.getElementById("answer_en").value = "全問回答しました";
+            }
+
+            // 1問回答後、ラジオボタンとリロードボタンは選択不可とする。
+            if (current_q_num == 1) {
+                for (const r of document.getElementsByName("category[]")) {
+                    r.disabled = true;
+                }
             }
         }
+
+        // カテゴリー（レベル）を設定する。
+        // golden_phrase.listsの順序をランダムに入れ替える。
+        let target_list;
+        const setCategory = (isFocus = true) => {
+            target_list = golden_phrases[getCategory()];
+            const list = target_list;
+            for (let i = list.length - 1; i > 0; i--) {
+                const r = Math.floor(Math.random() * (i + 1));
+                const temp =  list[i];
+
+                list[i] = list[r];
+                list[r] = temp;
+            }
+            setQuestion();
+            document.getElementById("process").innerText = `OK: ${ok_count} NG: ${ng_count} ... ${current_q_num} / ${list.length}`;
+            if (isFocus == true) {
+                document.getElementById("answer_en").focus();
+            }
+        }
+
+        // 選択されたチェックボックスの値を返却する。
+        const getCategory = () => {
+            for (const r of document.getElementsByName("category[]")) {
+                if (r.checked == true) {
+                    return r.value;
+                }
+            }
+        }
+
+
     </script>
 </head>
 
 <body>
     <form id="input_area" action="JavaScript: apply();">
         <table>
+            <tr>
+                <th>種別</th>
+                <td>
+                    <label><input type="radio" name="category[]" value="lv600" checked>Lv 600</label>
+                    <label><input type="radio" name="category[]" value="lv730">Lv 730</label>
+                    <label><input type="radio" name="category[]" value="lv860">Lv 860</label>
+                    <label><input type="radio" name="category[]" value="lv990">Lv 990</label>
+                </td>
+                <td></td>
+            </tr>
             <tr>
                 <th rowspan="2">問題</th>
                 <td id="question_jp">&nbsp;</td>
@@ -107,7 +208,7 @@
             <tr>
                 <th>回答</th>
                 <td><input type="text" id="answer_en"></td>
-                <td><input type="submit" value="回答する"></td>
+                <td><input type="submit" value="回答する"> <input id="dlbtn" type="button" value="結果をダウンロード"></td>
             </tr>
             <tr>
                 <th rowspan="2">結果</th>
