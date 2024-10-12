@@ -119,11 +119,11 @@
                 const quiz_result_text = (current_answer_en_text == list[current_q_num].a_en) ? "OK" : "NG";
 
                 if (quiz_result_text == "OK") {
-                    document.getElementById("result").value = `[${current_Q_NUM_text}] ${quiz_result_text}  ${list[current_q_num].a_en} ${list[current_q_num].pronounce}\n${current_result_text}`;
+                    document.getElementById("result").value = `[${current_Q_NUM_text}]  ${quiz_result_text}  ${list[current_q_num].a_en}  ${list[current_q_num].pronounce}\n${current_result_text}`;
                     ok_count++;
                 }
                 else {
-                    document.getElementById("result").value = `[${current_Q_NUM_text}] ${quiz_result_text}  ${list[current_q_num].a_en} ${list[current_q_num].pronounce}  ${list[current_q_num].q_jp}  ${list[current_q_num].q_en}  (-_-;) < \"${current_answer_en_text}\"\n${current_result_text}`;
+                    document.getElementById("result").value = `[${current_Q_NUM_text}]  ${quiz_result_text}  ${list[current_q_num].a_en}  ${list[current_q_num].pronounce}  ${list[current_q_num].q_jp}  ${list[current_q_num].q_en}  (-_-;) < \"${current_answer_en_text}\"\n${current_result_text}`;
                     ng_count++
                 }
                 current_q_num++;
