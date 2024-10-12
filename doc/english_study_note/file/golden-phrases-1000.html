@@ -129,7 +129,10 @@
                 current_q_num++;
                 setQuestion();
                 document.getElementById("answer_en").value = "";
-                document.getElementById("process").innerText = `OK: ${ok_count} NG: ${ng_count} ... ${current_q_num} / ${list.length}`;
+
+                // 参考：https://webukatu.com/wordpress/blog/8336/
+                const validity = new Intl.NumberFormat('ja', { style: 'percent'}).format(ok_count / list.length);
+                document.getElementById("process").innerText = `${current_q_num} / ${list.length} 残り${list.length - current_q_num}問\nOK: ${ok_count} NG: ${ng_count} ... 正答率: ${validity}`;
             }
 
             // 全問実施した場合、クリアした旨を表示する。
@@ -159,7 +162,7 @@
                 list[r] = temp;
             }
             setQuestion();
-            document.getElementById("process").innerText = `OK: ${ok_count} NG: ${ng_count} ... ${current_q_num} / ${list.length}`;
+            document.getElementById("process").innerText = `${current_q_num} / ${list.length}`;
             if (isFocus == true) {
                 document.getElementById("answer_en").focus();
             }
