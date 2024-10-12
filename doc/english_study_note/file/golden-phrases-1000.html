@@ -11,16 +11,19 @@
             -webkit-text-size-adjust: 100%; /* Safari */
         }
         #answer_en {
-            width: 60%;
-            max-width: 80em;
-            min-width: 30em;
+            width: 70em;
+            /* max-width: 80em;
+            min-width: 30em; */
         }
 
+        /* 参考：https://web-camp.io/magazine/archives/90660 */
         #result {
-            width: 60%;
-            max-width: 80em;
-            min-width: 30em;
+            width: 70em;
+            /* max-width: 80em;
+            min-width: 30em; */
             field-sizing: content;
+            overflow-x: scroll;
+            white-space: nowrap;
         }
 
         table tr th {
@@ -31,21 +34,13 @@
             vertical-align: top;
         }
     </style>
+    <script type="text/javascript" src="./lv600list.js"></script>
+    <script type="text/javascript" src="./supplement1list.js"></script>
     <script type="text/JavaScript">
         // 問題と解答のオブジェクト。ロード時にこの配列を並べ替える。
         let golden_phrases = {
-            lv600: [
-                {no: 1, q_jp: "とにかくやってみよう", q_en: "Let's try a______.", a_en: "anyway", pronounce: ""},
-                {no: 2, q_jp: "スピーチに続いて、夕食を取った。", q_en: "F______ the speech, we had dinner.", a_en: "following", pronounce: ""},
-                {no: 3, q_jp: "地図を参照してください。", q_en: "Please r______ <u>to</u> the map.", a_en: "refer to", pronounce: ""},
-                {no: 4, q_jp: "チケットはオンラインで入手可能です。", q_en: "Tickets are a______ online.", a_en: "available", pronounce: ""},
-                {no: 5, q_jp: "営業部", q_en: "the sales d______", a_en: "department", pronounce: ""},
-                {no: 6, q_jp: "大きな会議室", q_en: "a large c______ room.", a_en: "conference", pronounce: ""},
-                {no: 7, q_jp: "メールによると", q_en: "a______ <u>to</u> the e-mail", a_en: "according to", pronounce: ""},
-                {no: 8, q_jp: "女性はおそらく誰ですか。", q_en: "Who most l______ is the woman?", a_en: "likely", pronounce: ""},
-                {no: 9, q_jp: "男性は何をすることを申し出ていますか。", q_en: "What does the man o______ <u>to</u> do?", a_en: "offer to", pronounce: ""},
-                {no: 10, q_jp: "新しいオフィス機器", q_en: "new office e______", a_en: "equipment", pronounce: ""},
-            ],
+            lv600: lv600list,
+            supplement1: supplement1list,
             lv730: [
                 {no: 0, q_jp: "ダミー", q_en: "dummy", a_en: "dummy", pronounce: "/dˈʌmi/"}
             ],
@@ -190,6 +185,7 @@
                 <th>種別</th>
                 <td>
                     <label><input type="radio" name="category[]" value="lv600" checked>Lv 600</label>
+                    <label><input type="radio" name="category[]" value="supplement1">パート1 重要語</label>
                     <label><input type="radio" name="category[]" value="lv730">Lv 730</label>
                     <label><input type="radio" name="category[]" value="lv860">Lv 860</label>
                     <label><input type="radio" name="category[]" value="lv990">Lv 990</label>
