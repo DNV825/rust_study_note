@@ -131,7 +131,7 @@
                 document.getElementById("answer_en").value = "";
 
                 // 参考：https://webukatu.com/wordpress/blog/8336/
-                const validity = new Intl.NumberFormat('ja', { style: 'percent'}).format(ok_count / list.length);
+                const validity = new Intl.NumberFormat('ja', { style: 'percent'}).format(ok_count / (ok_count + ng_count));
                 document.getElementById("process").innerText = `${current_q_num} / ${list.length} 残り${list.length - current_q_num}問\nOK: ${ok_count} NG: ${ng_count} ... 正答率: ${validity}`;
             }
 
