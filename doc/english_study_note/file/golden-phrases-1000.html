@@ -77,6 +77,7 @@
                 const separater = "\n--------\n";
                 const result_text = document.getElementById("result").value;
                 const blob = new Blob([result_count, separater, result_text], { type: 'text/plain;charset=utf8' });
+                const list = target_list;
 
                 // ダミーの a 要素を生成して body 要素の最後に追加
                 let dummy_a_el = document.createElement('a');
@@ -89,7 +90,7 @@
                 // 参考：https://www.ey-office.com/blog_archive/2023/04/18/short-code-to-get-todays-date-in-yyyy-mm-dd-format-in-javascript/
                 const current_datetime = new Date().toLocaleDateString("ja-JP", {year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", second: "2-digit"}).replaceAll('/', '').replaceAll(':', '').replaceAll(' ','_');
                 const target_category_name = getCategory();
-                dummy_a_el.download = `${current_datetime}_${target_category_name}_OK-${ok_count}_NG-${ng_count}.log`;
+                dummy_a_el.download = `${current_datetime}_${target_category_name}_OK-${ok_count}_NG-${ng_count}_by${list.length}.log`;
                 
                 // 疑似的に a 要素をクリックさせる
                 dummy_a_el.click();
