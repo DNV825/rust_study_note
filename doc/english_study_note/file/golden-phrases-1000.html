@@ -97,7 +97,7 @@
                 // a 要素の download 属性にファイル名をセット
                 // 参考：https://www.ey-office.com/blog_archive/2023/04/18/short-code-to-get-todays-date-in-yyyy-mm-dd-format-in-javascript/
                 const filename_current_datetime = current_datetime.replaceAll('/', '').replaceAll(':', '').replaceAll(' ','_');
-                dummy_a_el.download = `${current_datetime}_${target_category_name}_OK-${ok_count}_NG-${ng_count}_by${list.length}.log`;
+                dummy_a_el.download = `${filename_current_datetime}_${target_category_name}_OK-${ok_count}_NG-${ng_count}_by${list.length}.log`;
                 
                 // 疑似的に a 要素をクリックさせる
                 dummy_a_el.click();
