@@ -71,14 +71,20 @@
             // 結果をダウンロードするボタンのイベントを定義する。
             // 参考：https://webfrontend.ninja/js-download-blob/
             document.getElementById("dlbtn").addEventListener('click', () => {
+                // ファイル名に必要な要素の取得。
+                const current_datetime = new Date().toLocaleDateString("ja-JP", {year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", second: "2-digit"});
+                const target_category_name = getCategory();
+
                 // 結果を格納する Blob オブジェクトを生成
-                const category = getCategory();
+                const category = target_category_name;
                 const elapsed_time = document.getElementById("elapsed_time").innerText;
-                const category_and_elapsed_time = `${category} ${elapsed_time}\n`;
-                const result_count = document.getElementById("process").innerText;
+                const result_count = (document.getElementById("process").innerText).replace("問\n", "問\n ");
                 const separater = "\n--------\n";
                 const result_text = document.getElementById("result").value;
-                const blob = new Blob([category_and_elapsed_time, result_count, separater, result_text], { type: 'text/plain;charset=utf8' });
+
+                const finish_status = `${category}\n ${result_count}\n ${elapsed_time} 実施日 ${current_datetime}`;
+
+                const blob = new Blob([finish_status, separater, result_text], { type: 'text/plain;charset=utf8' });
                 const list = target_list;
 
                 // ダミーの a 要素を生成して body 要素の最後に追加
@@ -90,8 +96,7 @@
                 
                 // a 要素の download 属性にファイル名をセット
                 // 参考：https://www.ey-office.com/blog_archive/2023/04/18/short-code-to-get-todays-date-in-yyyy-mm-dd-format-in-javascript/
-                const current_datetime = new Date().toLocaleDateString("ja-JP", {year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", second: "2-digit"}).replaceAll('/', '').replaceAll(':', '').replaceAll(' ','_');
-                const target_category_name = getCategory();
+                const filename_current_datetime = current_datetime.replaceAll('/', '').replaceAll(':', '').replaceAll(' ','_');
                 dummy_a_el.download = `${current_datetime}_${target_category_name}_OK-${ok_count}_NG-${ng_count}_by${list.length}.log`;
                 
                 // 疑似的に a 要素をクリックさせる
