@@ -36,14 +36,13 @@
     </style>
     <script type="text/javascript" src="./lv600list.js"></script>
     <script type="text/javascript" src="./supplement1list.js"></script>
+    <script type="text/javascript" src="./lv730list.js"></script>
     <script type="text/JavaScript">
         // 問題と解答のオブジェクト。ロード時にこの配列を並べ替える。
         let golden_phrases = {
             lv600: lv600list,
             supplement1: supplement1list,
-            lv730: [
-                {no: 0, q_jp: "ダミー", q_en: "dummy", a_en: "dummy", pronounce: "/dˈʌmi/"}
-            ],
+            lv730: lv730list,
             lv860: [
                 {no: 0, q_jp: "ダミー", q_en: "dummy", a_en: "dummy", pronounce: "/dˈʌmi/"}
             ],
@@ -73,10 +72,13 @@
             // 参考：https://webfrontend.ninja/js-download-blob/
             document.getElementById("dlbtn").addEventListener('click', () => {
                 // 結果を格納する Blob オブジェクトを生成
+                const category = getCategory();
+                const elapsed_time = document.getElementById("elapsed_time").innerText;
+                const category_and_elapsed_time = `${category} ${elapsed_time}\n`;
                 const result_count = document.getElementById("process").innerText;
                 const separater = "\n--------\n";
                 const result_text = document.getElementById("result").value;
-                const blob = new Blob([result_count, separater, result_text], { type: 'text/plain;charset=utf8' });
+                const blob = new Blob([category_and_elapsed_time, result_count, separater, result_text], { type: 'text/plain;charset=utf8' });
                 const list = target_list;
 
                 // ダミーの a 要素を生成して body 要素の最後に追加
@@ -139,6 +141,7 @@
             // 全問実施した場合、クリアした旨を表示する。
             if (current_q_num >= list.length) {
                 document.getElementById("answer_en").value = "全問回答しました";
+                clearInterval(timer);
             }
 
             // 1問回答後、ラジオボタンとリロードボタンは選択不可とする。
@@ -147,6 +150,25 @@
                     r.disabled = true;
                 }
             }
+        }
+
+        // タイマー用の変数。
+        let timer;
+        let start_time;
+        const setElapsedTime = () => {
+            const current_time = new Date();
+            const elapsed_time_all_miliseconds = current_time - start_time;
+            const elapsed_time_all_seconds = Math.floor(elapsed_time_all_miliseconds / 1000);
+
+            const elapsed_time_seconds = elapsed_time_all_seconds % 60;
+            const elapsed_time_minutes = Math.floor(elapsed_time_all_seconds / 60) % 60;
+            const elapsed_time_hours = Math.floor(elapsed_time_all_seconds / (60 * 60));
+
+            const str_elapsed_time_seconds = (elapsed_time_seconds >= 10) ? elapsed_time_seconds : `0${elapsed_time_seconds}`;
+            const str_elapsed_time_minutes = (elapsed_time_minutes >= 10) ? elapsed_time_minutes : `0${elapsed_time_minutes}`;
+            const str_elapsed_time_hours = (elapsed_time_hours >= 10) ? elapsed_time_hours : `0${elapsed_time_hours}`;
+
+            document.getElementById("elapsed_time").innerText = `経過時間 ${str_elapsed_time_hours}:${str_elapsed_time_minutes}:${str_elapsed_time_seconds}`;
         }
 
         // カテゴリー（レベル）を設定する。
@@ -163,6 +185,10 @@
                 list[r] = temp;
             }
             setQuestion();
+            start_time = new Date();
+            clearInterval(timer);
+            document.getElementById("elapsed_time").innerText = "経過時間 00:00:00";
+            timer = setInterval(setElapsedTime, 1000);
             document.getElementById("process").innerText = `${current_q_num} / ${list.length}`;
             if (isFocus == true) {
                 document.getElementById("answer_en").focus();
@@ -177,8 +203,6 @@
                 }
             }
         }
-
-
     </script>
 </head>
 
@@ -194,7 +218,7 @@
                     <label><input type="radio" name="category[]" value="lv860">Lv 860</label>
                     <label><input type="radio" name="category[]" value="lv990">Lv 990</label>
                 </td>
-                <td></td>
+                <td id="elapsed_time">経過時間 00:00:00</td>
             </tr>
             <tr>
                 <th rowspan="2">問題</th>
