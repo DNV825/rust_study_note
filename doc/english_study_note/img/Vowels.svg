@@ -135,7 +135,7 @@
   <!-- 発音記号 Open（広）,Central（中舌）…この分類については該当なし -->
   <!-- 発音記号 Open（広）,Back（奥舌） -->
   <text x="595" y="260" style="font-size: 0.5em; font-weight: bold; fill: #ff0000; text-anchor: end;">口を開いて</text>
-  <text x="595" y="270" style="font-size: 0.5em; font-weight: bold; fill: #ff0000; text-anchor: end;">「あ」の口で「お」</text>
+  <text x="595" y="270" style="font-size: 0.5em; font-weight: bold; fill: #ff0000; text-anchor: end;">「お」の舌で「あ」</text>
   <rect x="560" y="275" width="1.5em" height="1.5em" style="fill: #ffffff;" />
   <text x="565" y="290" style="font-size: 1.3em; font-weight: bold; fill: #ff0000;">ɑ</text>
   <rect x="615" y="275" width="1.5em" height="1.5em" style="fill: #ffffff;" />
