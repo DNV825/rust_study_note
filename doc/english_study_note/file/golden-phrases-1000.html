@@ -72,7 +72,7 @@
             // 参考：https://webfrontend.ninja/js-download-blob/
             document.getElementById("dlbtn").addEventListener('click', () => {
                 // ファイル名に必要な要素の取得。
-                const current_datetime = new Date().toLocaleDateString("ja-JP", {year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", second: "2-digit"});
+                const finished_datetime_string = finished_datetime.toLocaleDateString("ja-JP", {year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", second: "2-digit"});
                 const target_category_name = getCategory();
 
                 // 結果を格納する Blob オブジェクトを生成
@@ -82,7 +82,7 @@
                 const separater = "\n--------\n";
                 const result_text = document.getElementById("result").value;
 
-                const finish_status = `${category}\n ${result_count}\n ${elapsed_time} 実施日 ${current_datetime}`;
+                const finish_status = `${category}\n ${result_count}\n ${elapsed_time} 実施日 ${finished_datetime_string}`;
 
                 const blob = new Blob([finish_status, separater, result_text], { type: 'text/plain;charset=utf8' });
                 const list = target_list;
@@ -96,8 +96,8 @@
                 
                 // a 要素の download 属性にファイル名をセット
                 // 参考：https://www.ey-office.com/blog_archive/2023/04/18/short-code-to-get-todays-date-in-yyyy-mm-dd-format-in-javascript/
-                const filename_current_datetime = current_datetime.replaceAll('/', '').replaceAll(':', '').replaceAll(' ','_');
-                dummy_a_el.download = `${filename_current_datetime}_${target_category_name}_OK-${ok_count}_NG-${ng_count}_by${list.length}.log`;
+                const filename_finished_datetime = finished_datetime_string.replaceAll('/', '').replaceAll(':', '').replaceAll(' ','_');
+                dummy_a_el.download = `${filename_finished_datetime}_${target_category_name}_OK-${ok_count}_NG-${ng_count}_by${list.length}.log`;
                 
                 // 疑似的に a 要素をクリックさせる
                 dummy_a_el.click();
@@ -117,6 +117,7 @@
         // apply で答え合わせをし、残件と結果を更新する。
         let ok_count = 0;
         let ng_count = 0;
+        let finished_datetime;
         const apply = () => {
             const list = target_list;
 
@@ -147,6 +148,7 @@
             if (current_q_num >= list.length) {
                 document.getElementById("answer_en").value = "全問回答しました";
                 clearInterval(timer);
+                finished_datetime = new Date();
             }
 
             // 1問回答後、ラジオボタンとリロードボタンは選択不可とする。
