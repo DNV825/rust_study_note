@@ -34,6 +34,21 @@ $ sudo apt install build-essential
 
 WindowsでRustを利用する場合、Rustのインストール時にVisual Studioを同時にインストールできるので、事前になにか行う必要はない（ただし、普通にインストールできない環境では公式サイトの特別な手順に従わなければならない）。
 
+##### リンカとは
+
+ソースコードをビルドする場合、基本的には以下の流れとなる。
+
+1. ソースコードを.Sファイル（アセンブリ言語で記述されたソースコード）へ変換する。
+1. .sファイルを.oファイル（オブジェクトファイル：機械語で記述されたソースコード）へ変換する。
+1. .oファイルを別の.oファイルやライブラリとリンクし、実行可能ファイルを生成する。
+
+最終的にWindowsではEXE、LinuxではELF (Executable and Linkable File)というフォーマットの実行可能ファイルを生成する（説明が雑すぎてこれは間違っているかも。`readelf`コマンドでelfファイルが実行可能ファイルであるかを判別できる。）
+
+真面目に勉強するなら以下のページを見たほうが良さそう。
+
+- <https://zenn.dev/termoshtt/books/b4bce1b9ea5e6853cb07/viewer/link>
+- <https://tanakamura.github.io/pllp/docs/linker.html>
+
 #### Rustツールチェインのインストール
 
 公式サイトからRustツールチェインをダウンロードし、インストールする。
@@ -1511,6 +1526,10 @@ fn main() {
 1. 中林 智之 / 井田 健太, 基礎から学ぶ組込みRust, 株式会社シーアンドアール研究所, 2021/04/30 初版発行, ISBN978-4-86354-337-9 C3055
 1. クジラ飛行机, 手を動かして考えればよくわかる 高効率言語Rust書き方・作り方, ソシム株式会社, 2022/02/08 初版第2刷発行, ISBN978-4-8026-1351-4 / <https://lib.rs/crates/rpn_calc_53tanuki>
 1. κeen, Rustのモジュールの使い方 2018 Edition版, κeenのHappy Hacκing Blog, 2018/12/08, <https://keens.github.io/blog/2018/12/08/rustnomoju_runotsukaikata_2018_editionhan/>
+1. -, オブジェクトファイル, G学院 プログラミング用語解説, -, <https://gimo.jp/glossary/details/object_file.html>
+1. -, リンカ, G学院 プログラミング用語解説, -, <https://gimo.jp/glossary/details/linker.html>
+1．tanakmura, リンカ, 実践的低レイヤプログラミング, -, <https://tanakamura.github.io/pllp/docs/linker.html>
+1. termoshtt, リンクと実行可能ファイル, Rustで数値計算, 2023/10/07, <https://zenn.dev/termoshtt/books/b4bce1b9ea5e6853cb07/viewer/link>
 
 ### Rust公式資料
 
