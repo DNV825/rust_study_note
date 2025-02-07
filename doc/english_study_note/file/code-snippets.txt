@@ -134,5 +134,10 @@
 		"prefix": "@right-tail-l",
 		"body": ["ɭ"],
 		"description": "right tail l"
+	},
+	"Phonetic Symbols [ç]": {
+		"prefix": "@c-cedilla",
+		"body": ["ç"],
+		"description": "c-cedilla"
 	}
 }
