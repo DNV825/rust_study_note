@@ -40,6 +40,14 @@ let mut output_file = File::create(&output_file_path).expect("xxxxx");
 output_file.write_all(&buf[0...100]);
 output_file.write_all(&buf[100..])
 
+// 読み込んでストリームに渡す例。
+let mut source_file = fs::File::open(&source_path).unwrap();
+let mut source_bytes = Vec::new();
+source_file.read_to_end(&mut source_bytes).unwrap();
+
+let mut stream = Cursor::new(source.bytes.to_vec());
+let _ = builder.set_thumbnail(format_mime, &mut stream);
+
 // コマンドを実行する方法。C言語のsystem()やVBAのexecやrunに相当する。
 let output = Command::new("openssl").args["sha256", -"binary", target_path]).output().expect("faild to run openssl sha256");
 let mut f = File::create(path).expect("Can't open file");
