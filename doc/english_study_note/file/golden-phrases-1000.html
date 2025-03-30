@@ -33,22 +33,35 @@
         table tr td {
             vertical-align: top;
         }
+
+        fieldset {
+            border-style: dotted;
+        }
     </style>
     <script type="text/javascript" src="./lv600list.js"></script>
-    <script type="text/javascript" src="./supplement1list.js"></script>
     <script type="text/javascript" src="./lv730list.js"></script>
+    <script type="text/javascript" src="./lv860list.js"></script>
+    <script type="text/javascript" src="./lv990list.js"></script>
+    <script type="text/javascript" src="./supplement1list.js"></script>
+    <script type="text/javascript" src="./supplement2list.js"></script>
+    <script type="text/javascript" src="./supplement3list.js"></script>
+    <script type="text/javascript" src="./supplement4list.js"></script>
+    <script type="text/javascript" src="./supplement5list.js"></script>
     <script type="text/JavaScript">
         // 問題と解答のオブジェクト。ロード時にこの配列を並べ替える。
         let golden_phrases = {
             lv600: lv600list,
-            supplement1: supplement1list,
             lv730: lv730list,
-            lv860: [
-                {no: 0, q_jp: "ダミー", q_en: "dummy", a_en: "dummy", pronounce: "/dˈʌmi/"}
-            ],
-            lv990: [
-                {no: 0, q_jp: "ダミー", q_en: "dummy", a_en: "dummy", pronounce: "/dˈʌmi/"}
-            ]
+            lv860: lv860list,
+            lv990: lv990list,
+            supplement1: supplement1list,
+            supplement2: supplement2list,
+            supplement3: supplement3list,
+            supplement4: supplement4list,
+            supplement5: supplement5list,
+            // dummy: [
+            //     {no: 0, q_jp: "ダミー", q_en: "dummy", a_en: "dummy", pronounce: "/dˈʌmi/"}
+            // ]
         };
 
         // 問題を表示する。
@@ -219,11 +232,21 @@
             <tr>
                 <th>種別</th>
                 <td>
-                    <label><input type="radio" name="category[]" value="lv600" checked>Lv 600</label>
-                    <label><input type="radio" name="category[]" value="supplement1">パート1 重要語</label>
-                    <label><input type="radio" name="category[]" value="lv730">Lv 730</label>
-                    <label><input type="radio" name="category[]" value="lv860">Lv 860</label>
-                    <label><input type="radio" name="category[]" value="lv990">Lv 990</label>
+                    <fieldset>
+                        <legend>金のフレーズ</legend>
+                        <label><input type="radio" name="category[]" value="lv600" checked>Lv 600</label>
+                        <label><input type="radio" name="category[]" value="lv730">Lv 730</label>
+                        <label><input type="radio" name="category[]" value="lv860">Lv 860</label>
+                        <label><input type="radio" name="category[]" value="lv990">Lv 990</label><br>
+                        <label><input type="radio" name="category[]" value="supplement1">パート1 重要語</label>
+                        <label><input type="radio" name="category[]" value="supplement2">部署・職業名</label>
+                        <label><input type="radio" name="category[]" value="supplement3">前置詞・接続詞・接続副詞</label>
+                        <label><input type="radio" name="category[]" value="supplement4">多義語</label>
+                        <label><input type="radio" name="category[]" value="supplement5">定型表現</label>
+                    </fieldset>
+                    <fieldset>
+                        <legend>金の熟語</legend>
+                    </fieldset>
                 </td>
                 <td id="elapsed_time">経過時間 00:00:00</td>
             </tr>
@@ -238,7 +261,7 @@
             </tr>
             <tr>
                 <th>回答</th>
-                <td><input type="text" id="answer_en"></td>
+                <td><input type="text" id="answer_en" autocapitalize="off"></td>
                 <td><input type="submit" value="回答する"> <input id="dlbtn" type="button" value="結果をダウンロード"></td>
             </tr>
             <tr>
