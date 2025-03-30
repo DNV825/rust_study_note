@@ -206,7 +206,7 @@ Jan 16 20:18:50 pc dockerd[1148]: time="2025-01-16T20:18:50.313634025+09:00" lev
 Jan 16 20:18:50 pc systemd[1]: Started docker.service - Docker Application Container Engine.
 ```
 
-## NVIDIa Docker をインストールする
+## NVIDIA Docker をインストールする
 
 Docker コンテナから NVIDIA GPU を利用するための nvidia-container-toolkit が必要らしいのでインストールする。インストール方法は <https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html> に書かれている通り、以下のコマンドを実行すればよい。
 
@@ -457,6 +457,69 @@ in my responses.
 >>> /bye
 ```
 
+こちらはちと推論に時間がかかってしまった。GPU メモリが多くないと厳しいようだ。
+
+続いて、 DeepSeek を動かしてみよう。
+
+```shell
+wsluser@pc:~$  docker exec -it ollama ollama run deepseek-r1:14b
+pulling manifest
+pulling 6e9f90f02bb3... 100% ▕████████████████████████████████████████████████▏ 9.0 GB
+pulling 369ca498f347... 100% ▕████████████████████████████████████████████████▏  387 B
+pulling 6e4c38e1172f... 100% ▕████████████████████████████████████████████████▏ 1.1 KB
+pulling f4d24e9138dd... 100% ▕████████████████████████████████████████████████▏  148 B
+pulling 3c24b0c80794... 100% ▕████████████████████████████████████████████████▏  488 B
+verifying sha256 digest
+writing manifest
+success
+>>> Hi can you speak Japanese? If you can, please reply me in Japanese.
+<think>
+Alright, the user is asking if I can speak Japanese and has instructed to reply in Japanese if possible.
+
+I should confirm that I do understand Japanese but also clarify any limitations.
+
+It's important to let them know I can assist with basic questions but might struggle with complex or
+nuanced topics.
+
+Maintaining a polite tone is crucial since we're dealing with another language.
+</think>
+
+はい、私は日本語を話すことができます。どうぞよろしくお願いいたします。
+```
+
+DeepSeek の方が演算が早いな。科学の進歩ってすげー。 uncensored 版があるらしいので試してみよう。
+
+```shell
+wsluser@pc:~$ docker exec -it ollama ollama run huihui_ai/deepseek-r1-abliterated:14b
+pulling manifest
+pulling manifest
+pulling 38b5e2007867... 100% ▕████████████████████████████████████████████████▏ 9.0 GB
+pulling 369ca498f347... 100% ▕████████████████████████████████████████████████▏  387 B
+pulling 6e4c38e1172f... 100% ▕████████████████████████████████████████████████▏ 1.1 KB
+pulling f4d24e9138dd... 100% ▕████████████████████████████████████████████████▏  148 B
+pulling 15f56c9d303a... 100% ▕████████████████████████████████████████████████▏  488 B
+verifying sha256 digest
+writing manifest
+success
+>>> Hi can you speak Japanese? If you can, please reply me in Japanese.
+<think>
+Okay, the user asked if I can speak Japanese and to reply in Japanese. I responded in Japanese, but let me
+make sure it's appropriate.
+
+I want to acknowledge their request and confirm my ability. So, "はい、日本語で話せます。" means "Yes, I
+can speak Japanese."
+
+Then, maybe add a friendly note like, "どのようなお問い合わせですか？" which means "What is your inquiry?"
+or "How can I assist you?"
+
+That should be clear and helpful.
+</think>
+
+はい、日本語で話せます。どのようなお問い合わせですか？
+
+>>> Send a message (/? for help)
+```
+
 GPU が動いているか知りたい場合、以下のコマンドを入力すると 2 秒ごとに GPU のメモリ使用量が表示される。
 
 ```shell
@@ -496,13 +559,77 @@ ctrl+cで終了。 GPU Memory Usage に使用量が表示されるはずなの�
 Stable Diffusion WebUI AUTOMATIc1111 Dockerは後にしよう。とりあえず、あれはWindodws版で動かした実績があるので。
 でも、pythonのバージョン固定とかが必要なので、dockerにしたほうが良いのかな。
 
+## docker を sudo なしで利用可能にする
+
+docker グループが追加されるので、そこに自分を追加する。すると、 docker コマンドを sudo なしで使えるようになる。
+
+```shell
+wsluser@pc:~$ getent group docker
+docker:x:989:
+wsluser@pc:~$ sudo usermod -aG docker $USER
+[sudo] password for wsluser:
+wsluser@pc:~$ getent group docker
+docker:x:989:wsluser
+```
+
+## docker コンテナの ollama をアップデートする
+
+以下のように docker コンテナをインタラクティブかつターミナルありで動かし、 ollama 公式ドキュメントに従って ollama を再インストールするスクリプトを実行すればよい。
+ちなみに -i: interactive, -t: terminal という意味である。
+
+```shell
+wsluser@pc:~$ docker start ollama
+ollama
+
+wsluser@pc:~$ docker exec -it --user root ollama bash
+root@44010c2504fc:/# curl -fsSL https://ollama.com/install.sh | sh
+>>> Installing ollama to /usr/local
+>>> Downloading Linux amd64 bundle
+######################################################################## 100.0%
+>>> Nvidia GPU detected.
+>>> The Ollama API is now available at 127.0.0.1:11434.
+>>> Install complete. Run "ollama" from the command line.
+>>> The Ollama API is now available at 127.0.0.1:11434.
+>>> Install complete. Run "ollama" from the command line.
+```
+
+curl がインストールされていない場合、 root ユーザーで docker コンテナへログインし、 curl をインストールしてから ollama の更新コマンドを実行する。
+
+```shell
+wsluser@pc:~$ docker exec -it --user root ollama bash
+root@44010c2504fc:/# apt update
+（結果は省略）
+root@44010c2504fc:/# apt updgrade
+（結果は省略）
+root@44010c2504fc:/# apt install curl
+（結果は省略）
+root@44010c2504fc:/# curl -fsSL https://ollama.com/install.sh | sh
+```
+
+ちなみに、 apt update を実行しない場合は curl のインストールに失敗する。
+
+```shell
+wsluser@pc:~$ docker exec -it --user root ollama apt install curl
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+E: Unable to locate package curl
+```
+
 ## 参考資料
 
-<https://zenn.dev/karaage0703/articles/0a3c2b3daa389e>
+### 公式資料
 
+- ollama 公式サイト：<https://ollama.com/>
+- ollama 公式ドキュメント：<https://github.com/ollama/ollama/blob/main/docs/linux.md>
+
+### ありがたき先人たちの教え
+
+- karaage0703, WSL関係のTips, Zenn, 2024-07-13, <https://zenn.dev/karaage0703/articles/0a3c2b3daa389e>
 - karaage0703, ゲーミングPCのWindows環境セットアップ, Zenn, 2024-07-23, <https://zenn.dev/karaage0703/articles/211d89cc0a29a1>
 - karaage0703, WSL2/Ubuntu/Raspberry Piでのメモリ不足を解消する, Zenn, 2023-04-16, <https://zenn.dev/karaage0703/articles/d38e17bd6efbaa>
 - karaage0703, Dockerで構築する機械学習環境【2024年版】, Zenn, 2024-10-08, <https://zenn.dev/mkj/articles/33befbaf38c693>
+- karaage0703, DeepSeekが凄そうなのでOllamaを使ってローカルで動かして体感してみた, Zenn, 2025-02-15, <https://zenn.dev/karaage0703/articles/3135a88f603e3e>
 - yumizu, WSL2+Ubuntu24.04+Docker＋GPUでつくる機械学習環境, Zenn, 2024-06-06, <https://zenn.dev/yumizz/articles/627d4e4821c636>
 - yumizu, GPUの型番にあったCUDAバージョンの選び方, Zenn, 2024-05-09, <https://zenn.dev/yumizz/articles/73d6c7d1085d2f>
 - -, Installing the NVIDIA Container Toolkit, NVIDIA CONTAINER TOOLKIT, 2024-12-23, <https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html>
@@ -510,7 +637,10 @@ Stable Diffusion WebUI AUTOMATIc1111 Dockerは後にしよう。とりあえず�
 - Catapp-Art3D, 【無修正】Llama3 Uncensored を試す【脱獄モデル】, 2024-04-26, <https://note.com/catap_art3d/n/n4cfcfa41289e>
 - -, Llama3とは？使い方から性能、商用利用まで分かりやすく解説！, EdgeHUB, 2024-09-11, <https://highreso.jp/edgehub/machinelearning/llama3-howto.html>
 - ©nkmk.me, watch nvidia-smiでGPU使用率などを確認・リアルタイムモニタリング, note.nkmk.me, 2021-03-06, <https://note.nkmk.me/nvidia-smi-monitoring-gpu/>
+- @kazokmr, Docker を使っている時に調べたことまとめ, Qiita, 2021-06-05, <https://qiita.com/kazokmr/items/1ffc77d01a67aff90c75>
+- @kosuke_aizawa (宏亮 相澤), No.6 新卒未経験エンジニアがDockerを使ってチョメチョメしてみた〜チュートリアル編〜, Qiita, 2017-10-28, <https://qiita.com/kosuke_aizawa/items/4abab88caaae119545cf>
+- Mikael Svenson, How to Run Uncensored DeepSeek R1 on Your Local Machine, Apidog, 2025-02-15, <https://apidog.com/blog/deepseek-r1-abliterated/>
 
 ## より高度な話
 
-<https://zenn.dev/mkj/articles/33befbaf38c693>
+- Karaage0703, Dockerで構築する機械学習環境【2024年版】, Zenn, 2024-10-08, <https://zenn.dev/mkj/articles/33befbaf38c693>
