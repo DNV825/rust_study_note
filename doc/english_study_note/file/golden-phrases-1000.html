@@ -10,6 +10,12 @@
             text-size-adjust: 100%; /* スマホで文字が大きくなってしまうのを防ぐ対応。 */
             -webkit-text-size-adjust: 100%; /* Safari */
         }
+
+        #input_area {
+            width: 78em;
+            float: left;
+        }
+
         #answer_en {
             width: 70em;
             /* max-width: 80em;
@@ -37,19 +43,49 @@
         fieldset {
             border-style: dotted;
         }
+
+        #pronounces {
+            float: left;
+            width: 38em;
+        }
+
+        #vowels {
+            width: 38em;
+            height: auto;
+        }
+
+        #consonants {
+            border-style: solid;
+            border-width: 1px;
+            border-collapse: collapse;
+        }
+
+        #consonants tr th {
+            vertical-align: top;
+            border-style: solid;
+            border-width: 1px;
+        }
+
+        #consonants tr td {
+            font-size: 12px;
+            vertical-align: top;
+            border-style: solid;
+            border-width: 1px;
+        }
+
     </style>
-    <script type="text/javascript" src="./lv600list.js"></script>
-    <script type="text/javascript" src="./lv730list.js"></script>
-    <script type="text/javascript" src="./lv860list.js"></script>
-    <script type="text/javascript" src="./lv990list.js"></script>
-    <script type="text/javascript" src="./supplement1list.js"></script>
-    <script type="text/javascript" src="./supplement2list.js"></script>
-    <script type="text/javascript" src="./supplement3list.js"></script>
-    <script type="text/javascript" src="./supplement4list.js"></script>
-    <script type="text/javascript" src="./supplement5list.js"></script>
+    <script type="text/javascript" src="./js/golden-phrases-1000/lv600list.js"></script>
+    <script type="text/javascript" src="./js/golden-phrases-1000/lv730list.js"></script>
+    <script type="text/javascript" src="./js/golden-phrases-1000/lv860list.js"></script>
+    <script type="text/javascript" src="./js/golden-phrases-1000/lv990list.js"></script>
+    <script type="text/javascript" src="./js/golden-phrases-1000/supplement1list.js"></script>
+    <script type="text/javascript" src="./js/golden-phrases-1000/supplement2list.js"></script>
+    <script type="text/javascript" src="./js/golden-phrases-1000/supplement3list.js"></script>
+    <script type="text/javascript" src="./js/golden-phrases-1000/supplement4list.js"></script>
+    <script type="text/javascript" src="./js/golden-phrases-1000/supplement5list.js"></script>
     <script type="text/JavaScript">
         // 問題と解答のオブジェクト。ロード時にこの配列を並べ替える。
-        let golden_phrases = {
+        let qa_lists = {
             lv600: lv600list,
             lv730: lv730list,
             lv860: lv860list,
@@ -195,7 +231,7 @@
         // golden_phrase.listsの順序をランダムに入れ替える。
         let target_list;
         const setCategory = (isFocus = true) => {
-            target_list = golden_phrases[getCategory()];
+            target_list = qa_lists[getCategory()];
             const list = target_list;
             for (let i = list.length - 1; i > 0; i--) {
                 const r = Math.floor(Math.random() * (i + 1));
@@ -244,9 +280,6 @@
                         <label><input type="radio" name="category[]" value="supplement4">多義語</label>
                         <label><input type="radio" name="category[]" value="supplement5">定型表現</label>
                     </fieldset>
-                    <fieldset>
-                        <legend>金の熟語</legend>
-                    </fieldset>
                 </td>
                 <td id="elapsed_time">経過時間 00:00:00</td>
             </tr>
@@ -271,6 +304,38 @@
             </tr>
         </table>
     </form>
+
+    <div id="pronounces">
+        <img id="vowels" src="./img/Vowels.png">
+        <table id="consonants">
+            <caption>表1: consonants table (子音表)</caption>
+            <tr><th>記号</th><th>調音様式</th><th>調音位置</th><th>有声音 / 無声音</th><th>音のイメージ</th></tr>
+            <tr><td>[p]</td><td rowspan="6">破裂音</td><td rowspan="2">①両唇音</td><td>無声音</td><td>「ぷっ」</td></tr>
+            <tr><td>[b]</td><td>有声音</td><td>「ぶっ」</td></tr>
+            <tr><td>[t]</td><td rowspan="2">②歯茎音</td><td>無声音</td><td>「たてぃとぅてと」の「た」の音</td></tr>
+            <tr><td>[d]</td><td>有声音</td><td>「だでぃどぅでど」の「だ」の音</td></tr>
+            <tr><td>[k]</td><td rowspan="2">⑤軟口蓋音</td><td>無声音</td><td>「くっ」</td></tr>
+            <tr><td>[g]</td><td>有声音</td><td>「ぐっ」</td></tr>
+            <tr><td>[f]</td><td rowspan="9">摩擦音</td><td rowspan="2">⑥唇歯音</td><td>無声音</td><td>上の前歯と下唇で、声を出さない「ふー」</td></tr>
+            <tr><td>[v]</td><td>有声音</td><td>上の前歯と下唇で、声を出す「う゛ー」</td></tr>
+            <tr><td>[ɵ]</td><td rowspan="2">⑦歯音</td><td>無声音</td><td>舌を上の前歯に当てて「すー」</td></tr>
+            <tr><td>[ð]</td><td>有声音</td><td>舌を上の前歯に当てて「ずー」</td></tr>
+            <tr><td>[s]</td><td rowspan="2">②歯茎音</td><td>無声音</td><td>「さすぃすせそ」の「さ」の音</td></tr>
+            <tr><td>[z]</td><td>有声音</td><td>「ざずぃずぜぞ」の「ざ」の音</td></tr>
+            <tr><td>[ʃ]</td><td rowspan="2">③後部歯茎音</td><td>無声音</td><td>「しゃししゅしぇしょ」の「し」の音</td></tr>
+            <tr><td>[ʒ]</td><td>有声音</td><td>「じゃじじゅじぇじょ」の「じ」の音</td></tr>
+            <tr><td>[h]</td><td>⑧声門（音）</td><td>無声音</td><td>「はへほ」の音と、「ひ」と「ふ」は口の奥から出す音</td></tr>
+            <tr><td>[ʧ]</td><td rowspan="2">破擦音</td><td rowspan="2">③後部歯茎音</td><td>無声音</td><td>「ちゃっちっちゅっちぇっちょっ」の「ち」の音</td></tr>
+            <tr><td>[ʤ]</td><td>有声音</td><td>「ぢゃっぢっぢゅっぢぇっぢょっ」の「ぢ」の音</td></tr>
+            <tr><td>[m]</td><td rowspan="3">鼻音</td><td>①両唇音</td><td>有声音</td><td>唇を閉じて「ん」、「ん～ま」の「ん」</td></tr>
+            <tr><td>[n]</td><td>②歯茎音</td><td>有声音</td><td>前歯の根元を舌で閉じて「ん」、「ん～な」の「ん」</td></tr>
+            <tr><td>[ŋ]</td><td>⑤軟口蓋音</td><td>有声音</td><td>口を開けて口の奥で舌を閉じて「ん」</td></tr>
+            <tr><td>[l]</td><td>側（面）音</td><td>②歯茎音</td><td>有声音</td><td>舌先を歯の根元の歯茎につけて「る」</td></tr>
+            <tr><td>[r]</td><td rowspan="3">接近音</td><td>③後部歯茎音</td><td>有声音</td><td>舌を引いて「る」、舌の根元の側面は上口蓋に触れる</td></tr>
+            <tr><td>[w]</td><td>①・⑤（両）唇軟口蓋音</td><td>有声音</td><td>口を丸めて「わ」でわずかに口を開く音、「ぅわ」の音</td></tr>
+            <tr><td>[j]</td><td>④硬口蓋音</td><td>有声音</td><td>力強い舌と天井が狭い「やゆよ」</td></tr>
+        </table>
+    </div>
 </body>
 
 </html>
