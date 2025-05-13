@@ -3,7 +3,7 @@
 <html>
 
 <head>
-    <title>金のフレーズ</title>
+    <title>金の熟語</title>
     <style type="text/css">
         /* 参考：https://rilaks.jp/blog/text-inflation/ */
         body {
@@ -74,27 +74,31 @@
         }
 
     </style>
-    <script type="text/javascript" src="./js/golden-phrases-1000/lv600list.js"></script>
-    <script type="text/javascript" src="./js/golden-phrases-1000/lv730list.js"></script>
-    <script type="text/javascript" src="./js/golden-phrases-1000/lv860list.js"></script>
-    <script type="text/javascript" src="./js/golden-phrases-1000/lv990list.js"></script>
-    <script type="text/javascript" src="./js/golden-phrases-1000/supplement1list.js"></script>
-    <script type="text/javascript" src="./js/golden-phrases-1000/supplement2list.js"></script>
-    <script type="text/javascript" src="./js/golden-phrases-1000/supplement3list.js"></script>
-    <script type="text/javascript" src="./js/golden-phrases-1000/supplement4list.js"></script>
-    <script type="text/javascript" src="./js/golden-phrases-1000/supplement5list.js"></script>
+    <script type="text/javascript" src="./js/golden-idiom-430/station1list.js"></script>
+    <script type="text/javascript" src="./js/golden-idiom-430/station2list.js"></script>
+    <script type="text/javascript" src="./js/golden-idiom-430/station3list.js"></script>
+    <script type="text/javascript" src="./js/golden-idiom-430/station4list.js"></script>
+    <script type="text/javascript" src="./js/golden-idiom-430/station5list.js"></script>
+    <script type="text/javascript" src="./js/golden-idiom-430/supplement1list.js"></script>
+    <script type="text/javascript" src="./js/golden-idiom-430/supplement2list.js"></script>
+    <script type="text/javascript" src="./js/golden-idiom-430/supplement3list.js"></script>
+    <script type="text/javascript" src="./js/golden-idiom-430/supplement4list.js"></script>
+    <script type="text/javascript" src="./js/golden-idiom-430/supplement5list.js"></script>
+    <script type="text/javascript" src="./js/golden-idiom-430/supplement6list.js"></script>
     <script type="text/JavaScript">
         // 問題と解答のオブジェクト。ロード時にこの配列を並べ替える。
         let qa_lists = {
-            lv600: lv600list,
-            lv730: lv730list,
-            lv860: lv860list,
-            lv990: lv990list,
+            station1: station1list,
+            station2: station2list,
+            station3: station3list,
+            station4: station4list,
+            staiton5: station5list,
             supplement1: supplement1list,
             supplement2: supplement2list,
             supplement3: supplement3list,
             supplement4: supplement4list,
             supplement5: supplement5list,
+            supplement5: supplement6list,
             // dummy: [
             //     {no: 0, q_jp: "ダミー", q_en: "dummy", a_en: "dummy", pronounce: "/dˈʌmi/"}
             // ]
@@ -269,16 +273,18 @@
                 <th>種別</th>
                 <td>
                     <fieldset>
-                        <legend>金のフレーズ</legend>
-                        <label><input type="radio" name="category[]" value="lv600" checked>Lv 600</label>
-                        <label><input type="radio" name="category[]" value="lv730">Lv 730</label>
-                        <label><input type="radio" name="category[]" value="lv860">Lv 860</label>
-                        <label><input type="radio" name="category[]" value="lv990">Lv 990</label><br>
-                        <label><input type="radio" name="category[]" value="supplement1">パート1 重要語</label>
-                        <label><input type="radio" name="category[]" value="supplement2">部署・職業名</label>
-                        <label><input type="radio" name="category[]" value="supplement3">前置詞・接続詞・接続副詞</label>
-                        <label><input type="radio" name="category[]" value="supplement4">多義語</label>
-                        <label><input type="radio" name="category[]" value="supplement5">定型表現</label>
+                        <legend>金の熟語</legend>
+                        <label><input type="radio" name="category[]" value="station1" checked>station 1</label>
+                        <label><input type="radio" name="category[]" value="station2">station 2</label>
+                        <label><input type="radio" name="category[]" value="station3">station 3</label>
+                        <label><input type="radio" name="category[]" value="station4">station 4</label>
+                        <label><input type="radio" name="category[]" value="station5">station 5</label><br>
+                        <label><input type="radio" name="category[]" value="supplement1">会話表現</label>
+                        <label><input type="radio" name="category[]" value="supplement2">パート 1 単語</label>
+                        <label><input type="radio" name="category[]" value="supplement3">サプリメント 3</label>
+                        <label><input type="radio" name="category[]" value="supplement4">サプリメント 4</label>
+                        <label><input type="radio" name="category[]" value="supplement5">サプリメント 5</label>
+                        <label><input type="radio" name="category[]" value="supplement6">サプリメント 6</label>
                     </fieldset>
                 </td>
                 <td id="elapsed_time">経過時間 00:00:00</td>
