@@ -92,13 +92,13 @@
             station2: station2list,
             station3: station3list,
             station4: station4list,
-            staiton5: station5list,
+            station5: station5list,
             supplement1: supplement1list,
             supplement2: supplement2list,
             supplement3: supplement3list,
             supplement4: supplement4list,
             supplement5: supplement5list,
-            supplement5: supplement6list,
+            supplement6: supplement6list,
             // dummy: [
             //     {no: 0, q_jp: "ダミー", q_en: "dummy", a_en: "dummy", pronounce: "/dˈʌmi/"}
             // ]
@@ -133,7 +133,7 @@
                 const elapsed_time = document.getElementById("elapsed_time").innerText;
                 const result_count = (document.getElementById("process").innerText).replace("問\n", "問\n ");
                 const separater = "\n--------\n";
-                const result_text = document.getElementById("result").value.replaceAll("  ", "\t");
+                const result_text = document.getElementById("result").value.replaceAll("  ", "\t").replaceAll(/.+\tOK\t.+/g, "").split("\n").sort().filter(n => n).join("\n");
 
                 const finish_status = `${category}\n ${result_count}\n ${elapsed_time} 実施日 ${finished_datetime_string}`;
 

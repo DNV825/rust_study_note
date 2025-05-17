@@ -129,7 +129,7 @@
                 const elapsed_time = document.getElementById("elapsed_time").innerText;
                 const result_count = (document.getElementById("process").innerText).replace("問\n", "問\n ");
                 const separater = "\n--------\n";
-                const result_text = document.getElementById("result").value.replaceAll("  ", "\t");
+                const result_text = document.getElementById("result").value.replaceAll("  ", "\t").replaceAll(/.+\tOK\t.+/g, "").split("\n").sort().filter(n => n).join("\n");
 
                 const finish_status = `${category}\n ${result_count}\n ${elapsed_time} 実施日 ${finished_datetime_string}`;
 
