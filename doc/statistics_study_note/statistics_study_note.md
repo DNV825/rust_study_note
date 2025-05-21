@@ -39,7 +39,7 @@ JavaScript で tikz を利用可能にするもの。すごい。参考：<https
 指数に対して以下の法則が成り立つ。
 
 $$
-\newcommand{\arraystretch}{2.0}
+%\newcommand{\arraystretch}{2.0}
 \begin{align*}
 & a \neq 0, b \neq 0 とし、m, n を整数とする \\
 & (1) \space a^m a^n=a^{m+n} && (2) \space \cfrac{a^m}{a^n} = a^{m-n} \\
@@ -69,7 +69,7 @@ $$
 対数に対して以下の法則が成り立つ。
 
 $$
-\newcommand{\arraystretch}{2.0}
+%\newcommand{\arraystretch}{2.0}
 \begin{align*}
 & (1) \space \log_a{M} + \log_a{N} = \log_a{MN} \\
 & (2) \space \log_a{M^p} = p\log_a{M} \\
@@ -87,7 +87,7 @@ $$
 統計検定 3 級に登場した。出題されても 1 問程度なので捨ててよいかも。平方完成は $3x^2 -12x +6$ といった式の $x$ を $(x - n)^2$ の形にまとめる手法のこと。平方完成を使うと、$(x - n)^2 = X^2$ のように値を置き換えて考えることができるようになる。
 
 $$
-\newcommand{\arraystretch}{2.0}
+%\newcommand{\arraystretch}{2.0}
 \begin{align*}
 &3x^2  - 12x + 6 \\
 & = 3 (x^2 - 4x) + 6 & \dots & \text{ $x^2$ の係数を外に出す } \\
