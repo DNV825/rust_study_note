@@ -12,19 +12,23 @@
         }
 
         #input_area {
-            width: 78em;
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            width: 68em;
             float: left;
+            z-index: 1;
         }
 
         #answer_en {
-            width: 70em;
+            width: 60em;
             /* max-width: 80em;
             min-width: 30em; */
         }
 
         /* 参考：https://web-camp.io/magazine/archives/90660 */
         #result {
-            width: 70em;
+            width: 60em;
             /* max-width: 80em;
             min-width: 30em; */
             field-sizing: content;
@@ -45,16 +49,21 @@
         }
 
         #pronounces {
-            float: left;
-            width: 38em;
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            width: 39em;
+            z-index: 0;
         }
 
         #vowels {
             width: 38em;
             height: auto;
+            mix-blend-mode: multiply;
         }
 
         #consonants {
+            width: 38em;
             border-style: solid;
             border-width: 1px;
             border-collapse: collapse;
@@ -78,6 +87,7 @@
     <script type="text/javascript" src="./js/golden-phrases-1000/lv730list.js"></script>
     <script type="text/javascript" src="./js/golden-phrases-1000/lv860list.js"></script>
     <script type="text/javascript" src="./js/golden-phrases-1000/lv990list.js"></script>
+    <script type="text/javascript" src="./js/golden-phrases-1000/weakpoint.js"></script>
     <script type="text/javascript" src="./js/golden-phrases-1000/supplement1list.js"></script>
     <script type="text/javascript" src="./js/golden-phrases-1000/supplement2list.js"></script>
     <script type="text/javascript" src="./js/golden-phrases-1000/supplement3list.js"></script>
@@ -90,6 +100,7 @@
             lv730: lv730list,
             lv860: lv860list,
             lv990: lv990list,
+            weakpoint: weakpointlist,
             supplement1: supplement1list,
             supplement2: supplement2list,
             supplement3: supplement3list,
@@ -116,6 +127,9 @@
             // ロード時の動作。
             setCategory();
 
+            // 全問回答するまでの間、ダウンロードボタンは使用不可にする。
+            document.getElementById("dlbtn").disabled = true;
+
             // イベントの登録。
             // 結果をダウンロードするボタンのイベントを定義する。
             // 参考：https://webfrontend.ninja/js-download-blob/
@@ -126,7 +140,7 @@
 
                 // 結果を格納する Blob オブジェクトを生成
                 const category = target_category_name;
-                const elapsed_time = document.getElementById("elapsed_time").innerText;
+                const elapsed_time = (document.getElementById("elapsed_time").innerText).replace("\n", " ");
                 const result_count = (document.getElementById("process").innerText).replace("問\n", "問\n ");
                 const separater = "\n--------\n";
                 const result_text = document.getElementById("result").value.replaceAll("  ", "\t").replaceAll(/.+\tOK\t.+/g, "").split("\n").sort().filter(n => n).join("\n");
@@ -174,7 +188,7 @@
                 const current_result_text = document.getElementById("result").value;
                 const current_Q_NUM_text = (list[current_q_num].no >= 100) ? `${list[current_q_num].no}` : ((list[current_q_num].no) >= 10) ? `0${list[current_q_num].no}` : `00${list[current_q_num].no}`;
                 const current_answer_en_text = document.getElementById("answer_en").value;
-                const quiz_result_text = (current_answer_en_text == list[current_q_num].a_en) ? "OK" : "NG";
+                const quiz_result_text = (current_answer_en_text.toLowerCase() == list[current_q_num].a_en.toLowerCase()) ? "OK" : "NG";
 
                 if (quiz_result_text == "OK") {
                     document.getElementById("result").value = `[${current_Q_NUM_text}]  ${quiz_result_text}  ${list[current_q_num].a_en}  ${list[current_q_num].pronounce}\n${current_result_text}`;
@@ -194,13 +208,15 @@
             }
 
             // 全問実施した場合、クリアした旨を表示する。
+            // そして、ダウンロードボタンを有効化する。
             if (current_q_num >= list.length) {
                 document.getElementById("answer_en").value = "全問回答しました";
                 clearInterval(timer);
                 finished_datetime = new Date();
+                document.getElementById("dlbtn").disabled = false;
             }
 
-            // 1問回答後、ラジオボタンとリロードボタンは選択不可とする。
+            // 1問回答後、ラジオボタンは選択不可とする。
             if (current_q_num == 1) {
                 for (const r of document.getElementsByName("category[]")) {
                     r.disabled = true;
@@ -224,7 +240,7 @@
             const str_elapsed_time_minutes = (elapsed_time_minutes >= 10) ? elapsed_time_minutes : `0${elapsed_time_minutes}`;
             const str_elapsed_time_hours = (elapsed_time_hours >= 10) ? elapsed_time_hours : `0${elapsed_time_hours}`;
 
-            document.getElementById("elapsed_time").innerText = `経過時間 ${str_elapsed_time_hours}:${str_elapsed_time_minutes}:${str_elapsed_time_seconds}`;
+            document.getElementById("elapsed_time").innerText = `経過時間 ${str_elapsed_time_hours}:${str_elapsed_time_minutes}:${str_elapsed_time_seconds}\n( ${(elapsed_time_all_seconds / (current_q_num + 1)).toFixed(1)} 秒/問)`;
         }
 
         // カテゴリー（レベル）を設定する。
@@ -243,7 +259,7 @@
             setQuestion();
             start_time = new Date();
             clearInterval(timer);
-            document.getElementById("elapsed_time").innerText = "経過時間 00:00:00";
+            document.getElementById("elapsed_time").innerText = "経過時間 00:00:00\n( 0.0 秒/問)";
             timer = setInterval(setElapsedTime, 1000);
             document.getElementById("process").innerText = `${current_q_num} / ${list.length}`;
             if (isFocus == true) {
@@ -273,7 +289,8 @@
                         <label><input type="radio" name="category[]" value="lv600" checked>Lv 600</label>
                         <label><input type="radio" name="category[]" value="lv730">Lv 730</label>
                         <label><input type="radio" name="category[]" value="lv860">Lv 860</label>
-                        <label><input type="radio" name="category[]" value="lv990">Lv 990</label><br>
+                        <label><input type="radio" name="category[]" value="lv990">Lv 990</label>
+                        <label><input type="radio" name="category[]" value="weakpoint">弱点</label><br>
                         <label><input type="radio" name="category[]" value="supplement1">パート1 重要語</label>
                         <label><input type="radio" name="category[]" value="supplement2">部署・職業名</label>
                         <label><input type="radio" name="category[]" value="supplement3">前置詞・接続詞・接続副詞</label>
