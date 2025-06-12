@@ -410,11 +410,11 @@ PS> $params["Newest"]    # ブラケットでも取得可能。
 
 ```powershell
 PS> $orderedDictionary = [ordered]@{a=1;b=2}
-PS> $obj = [pscustomobject]@{Name="Shiseki Akihide"; Belongs="富士通ビー・エス・シー"}
+PS> $obj = [pscustomobject]@{Name="a b"; Belongs="cde"}
 PS> $obj
 Name            Belongs
 ----            -------
-Shiseki Akihide 富士通ビー・エス・シー
+a b             cde
 ```
 
 ### リダイレクト >
